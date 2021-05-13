@@ -1,0 +1,4 @@
+export const GET_ERRORS = "GET_ERRORS";
+export const RECEIVE_HISTORY = "RECEIVE_HISTORY";
+export const REQUEST_HISTORY = "REQUEST_HISTORY";
+

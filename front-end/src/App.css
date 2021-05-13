@@ -1,0 +1,342 @@
+* {
+ margin: 0px;
+ padding: 0px;
+ font-family: monospace;
+}
+.App-title {
+	position: fixed; 
+	top: 0px;
+	right: 0px;
+	padding-right: 10px;
+}
+.App {
+  text-align: center;
+  background-color: #222;
+  overflow-x: hidden;
+}
+
+.App-logo {
+  height: 80px;
+  border-radius: 25%;
+}
+
+.App-header-container {
+  background-color: #222;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  top: 0px;
+  height: 50px;
+  padding: 5px 0px;
+}
+.App-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width:700px;
+    margin: 0 auto;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.App-header .title {
+     color: white;
+    display: flex;
+    align-items: center;
+}
+.App-header .contact {
+    display: flex;
+    flex-direction: column;
+}
+.App-header .contact code {
+    padding-bottom: 5px;
+}
+.App-header .title h2 {
+    margin-left: 5px;
+    font-family: "Corbert Condensed Italic";
+    font-weight: normal;
+    text-decoration: underline;
+}
+.App-header a {
+    color: white;
+}
+.App-image {
+    height: 700px;
+    width: 100%;
+    /* Location of the image */
+   
+
+    /* Background image is centered vertically and horizontally at all times */
+    background-position: center center;
+
+    /* Background image doesn't tile */
+    background-repeat: no-repeat;
+
+    /* Background image is fixed in the viewport so that it doesn't move when
+       the content's height is greater than the image's height */
+    background-attachment: fixed;
+
+    /* This is what makes the background image rescale based
+       on the container's size */
+    background-size: cover;
+
+    /* Set a background color that will be displayed
+       while the background image is loading */
+    background-color: #464646;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    background-position-y: 75px;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic);
+.App-image .quote{
+  font-size: 2.4em;
+  width: 400px;
+  font-family:Open Sans;
+  font-style:italic;
+  color: #F5DEB3;
+  padding:1.2em 30px 1.2em 75px;
+  border-left:8px solid #F5DEB3;
+  position: relative;
+  background: transparent;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+.App-image .quote::before{
+  font-family:Arial;
+  content: "\201C";
+  color: #F5DEB3;
+  font-size:2em;
+  position: absolute;
+  left: 10px;
+  top:-10px;
+}
+
+.App-image .quote::after{
+  content: '';
+}
+
+.App-image .quote span{
+  display:block;
+  color: #F5DEB3;
+  font-style: normal;
+  font-weight: bold;
+  margin-top:1em;
+}
+
+.quote-image {
+    width: 12em;
+}
+
+.divider {
+    height: 25px;
+}
+
+.footer {
+    color: gray;
+    align-items: center;
+    font-size: 10px;
+    width: 100%;
+}
+
+@media only screen and (max-width: 1050px) {
+    .services-offered p {
+        margin: 10px;
+    }
+    .services-offered .services-description ul {
+        margin-left: 0px;
+        padding-left: 10px;
+        margin-top: 0px;
+    }
+    .services-offered .services-description {
+        flex-direction: column;
+    }
+    .services-offered .services-description ul > li {
+        font-size: 12px;
+    }
+    .skills p {
+        margin: 10px;
+    }
+    .skills .skills-description ul {
+        margin-left: 0px;
+        padding-left: 10px;
+        margin-top: 0px;
+    }
+    .skills .skills-description {
+        flex-direction: column;
+    }
+    .skills .skills-description ul > li {
+        font-size: 12px;
+        margin-right: 10px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+	.App-splashscreen {
+		background-position-x: -45px;
+	}
+
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    background-color: #f7f7f7;
+    font-family: "Corbert Condensed Italic";
+}
+
+/* Scrollbar size */
+::-webkit-scrollbar {
+    width: 5px; /* To change vertical scrollbar width */
+    height: 5px; /* To change horizontal scrollbar height */
+}
+::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: #3d3d42;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #5d5d5d;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: #868686;
+}
+::-webkit-scrollbar-corner{
+    background-color: transparent;
+}
+
+
+.App-pages {
+	width: 100%;
+    background: url("serenity.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover; 
+}
+.App-page {
+	width: 100%;
+	margin: 0 auto;
+    max-width: 700px;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 25px;
+    color: white;
+    border: 1px solid white;
+    height: 100%;
+    padding-top: 75px;
+    display: flex;
+}
+.App-welcomescreen {
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 25px;
+    color: white;
+    border: 1px solid white;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.App-content-body {
+	padding: 25px;
+}	
+
+.App-splashscreen {
+	width: 100%;
+	height: 100vh;
+	top: 0px;
+	left: 0px;
+	background-image: url("./jpoms2.jpg");
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover; 
+    z-index: 100;
+    position: fixed;
+}
+
+.profile-card {
+	max-width: 600px;
+	max-height: 400px;
+	margin: 30px auto;
+	border: 1px solid white;
+	border-radius: 25px;
+	display: flex;
+	padding: 10px;
+	
+}
+.profile-card-image {
+	max-width: 50%;
+	border-radius: 25px;
+	border: 1px solid white;
+	height: auto;
+}
+
+.profile-card-info {
+	display: flex;
+	flex-direction: column;
+	overflow-y: scroll;
+	padding-left: 10px;
+	padding-top: 5px;
+}
+
+.profile-card-info-section {
+	width: 200px;
+	display: flex;
+	flex-direction: row;
+	align-content: space-between;
+	padding-bottom: 10px;
+}
+.profile-card-info-interests {
+	display: flex;
+	font-size: 10px;
+	flex-direction: row;
+ 	flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.profile-card-info-interests-section {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.profile-card-info-interests div {
+    width: 125px;
+    margin: auto;
+    padding: 2px;
+}
+.bold-title {
+	font-weight: 700;
+	padding-right: 10px;
+}
+
+.App-content-section {
+	margin-top: 10px;
+	display: flex;
+	flex-direction: column;
+	align-content: flex-start;
+	align-items: flex-start;
+}
+
+.App-content-section-contacts {
+	margin: 10px auto;
+	width: 100%;
+	max-witch: 600px;
+	display: flex;
+	flex-direction: row;
+	border: 1px solid white;
+	padding: 5px;
+	border-radius: 25px;
+	justify-content: space-around;
+}
+
+.App-content-section-contacts a{
+	font-size: 9px;
+	color: white;
+}
