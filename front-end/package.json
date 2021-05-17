@@ -17,7 +17,6 @@
     "clone-deep": "^4.0.1",
     "date-fns": "^2.16.1",
     "deep-diff": "^1.0.2",
-    "electron": "^8.5.1",
     "jwt-decode": "^2.2.0",
     "lodash": "^4.17.20",
     "material-icons": "^0.6.3",

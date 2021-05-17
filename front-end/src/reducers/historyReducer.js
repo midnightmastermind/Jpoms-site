@@ -2,7 +2,6 @@ import {
   RECEIVE_HISTORY, REQUEST_HISTORY
 } from "../actions/types";
 import {getTreeFromFlatData} from "react-sortable-tree";
-const isEmpty = require("is-empty");
 const initialState = {
   history: [],
   retrievingHistory: false

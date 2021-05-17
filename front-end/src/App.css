@@ -9,6 +9,38 @@
 	right: 0px;
 	padding-right: 10px;
 }
+
+.Landing-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Landing-title h2 {
+  padding: 10px 0px;
+}
+.Landing-contact {
+  padding: 10px 0px;
+}
+.Landing-contact a{
+  color: white;
+}
+.Landing-links {
+  display: flex;
+  flex-direction: column;
+}
+.Landing-link {
+  border-radius: 10px;
+  margin-top: 10px;
+  color: white;
+  border: 1px solid white;
+  padding: 10px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Landing-link .icon {
+  padding-right: 5px;
+}
 .App {
   text-align: center;
   background-color: #222;
@@ -17,7 +49,8 @@
 
 .App-logo {
   height: 80px;
-  border-radius: 25%;
+  width: 80px;
+  border-radius: 50%;
 }
 
 .App-header-container {
@@ -220,14 +253,14 @@ html, body {
 .App-page {
 	width: 100%;
 	margin: 0 auto;
-    max-width: 700px;
-    background-color: rgba(0,0,0,0.3);
-    border-radius: 25px;
-    color: white;
-    border: 1px solid white;
-    height: 100%;
-    padding-top: 75px;
-    display: flex;
+  max-width: 700px;
+  background-color: rgba(0,0,0,0.3);
+  border-radius: 25px;
+  color: white;
+  border: 1px solid white;
+  height: 100%;
+  padding-top: 75px;
+  display: flex;
 }
 .App-welcomescreen {
     background-color: rgba(0,0,0,0.3);
@@ -242,23 +275,43 @@ html, body {
 .App-content-body {
 	padding: 25px;
 }	
-
-.App-splashscreen {
+.Landing-page {
+  padding-top: 0px;
+}
+.Landing-page .App-splashscreen {
 	width: 100%;
 	height: 100vh;
 	top: 0px;
 	left: 0px;
 	background-image: url("./jpoms2.jpg");
 	display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover; 
-    z-index: 100;
-    position: fixed;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover; 
+  z-index: 100;
+  position: fixed;
+}
+
+.LandingLinks-page .App-splashscreen {
+	width: 100%;
+	height: 100vh;
+	top: 0px;
+	left: 0px;
+	background-image: url("./serenity.jpg");
+	display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover; 
+  z-index: 100;
+  position: fixed;
 }
 
 .profile-card {
@@ -287,18 +340,20 @@ html, body {
 }
 
 .profile-card-info-section {
-	width: 200px;
+	width: auto;
 	display: flex;
 	flex-direction: row;
-	align-content: space-between;
+	justify-content: space-between;
 	padding-bottom: 10px;
+	padding-right: 10px;
 }
+
 .profile-card-info-interests {
 	display: flex;
 	font-size: 10px;
 	flex-direction: row;
  	flex-wrap: wrap;
-    justify-content: space-evenly;
+  justify-content: space-evenly;
 }
 .profile-card-info-interests-section {
 	display: flex;
@@ -320,14 +375,19 @@ html, body {
 	margin-top: 10px;
 	display: flex;
 	flex-direction: column;
-	align-content: flex-start;
 	align-items: flex-start;
+	text-align: left;
 }
-
+.App-content-section .margin-left {
+  padding-left: 20px;
+}
+.App-content-section div {
+  width: auto;
+}
 .App-content-section-contacts {
 	margin: 10px auto;
 	width: 100%;
-	max-witch: 600px;
+	max-width: 600px;
 	display: flex;
 	flex-direction: row;
 	border: 1px solid white;

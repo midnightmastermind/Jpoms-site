@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import jpoms from '../jpoms2.jpg';
+import jpoms from '../jpoms3.jpg';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
@@ -25,9 +25,9 @@ const styles = {
     maxHeight: '50px',
     justifyContent: 'flex',
     padding: '0px',
-	color: '#A87A22;',
-	position: 'fixed',
-	top: '0'
+  	color: '#A87A22;',
+  	position: 'fixed',
+  	top: '0'
   }
 };
 

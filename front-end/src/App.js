@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import './App.css';
 
 import { fetchHistory } from "./actions/historyActions";
@@ -11,6 +8,7 @@ import store from "./store";
 
 import MenuHeader from './components/MenuHeader';
 import LandingPage from './components/LandingPage';
+import LandingLinksPage from './components/LandingLinksPage';
 import BlogPage from './components/BlogPage';
 import AboutPage from './components/AboutPage'
 import ServicesPage from './components/ServicesPage';
@@ -41,7 +39,7 @@ class App extends Component {
 	};
   render() {
     const { width } = this.state;
-	const isMobile = width <= 775;
+	  const isMobile = width <= 775;
     return (
     	<Provider store={store}>
       <div className="App">
@@ -51,16 +49,16 @@ class App extends Component {
         <div className="App-pages">
           <Switch>
              <Route path="/about" component={ AboutPage } />
-		     <Route path="/blog" component={ BlogPage } />
-		     <Route path="/services" component={ ServicesPage } />
-		     <Route path="/history" component={ HistoryPage } />
+    		     <Route path="/blog" component={ BlogPage } />
+    		     <Route path="/services" component={ ServicesPage } />
+    		     <Route path="/history" component={ HistoryPage } />
              <Route path="/interests" component={ InterestsPage } />
-		     <Route path="/cats" component={ CatsPage } />
-		     <Route path="/projectzeno" component={ ProjectZenoPage } />
-		     <Route path="/jessica" component={ JessicaPage } />
-		     <Route path="/social" component={ SocialPage } />
-		     <Route exact path="/" component={ LandingPage } />
-		  </Switch>
+    		     <Route path="/cats" component={ CatsPage } />
+    		     <Route path="/projectzeno" component={ ProjectZenoPage } />
+    		     <Route path="/jessica" component={ JessicaPage } />
+    		     <Route path="/social" component={ SocialPage } />
+    		     <Route exact path="/" component={ LandingLinksPage } />
+    		  </Switch>
         </div>
         <div className="divider"></div>
         <div className="footer">jpoms.com | creater: Josh Pomerenke</div>
