@@ -99,7 +99,7 @@ class AboutPage extends Component {
                 <div><a href="https://www.facebook.com/joshpoms"><FontAwesomeIcon icon={faFacebookF}/>Josh Poms</a></div>
                 <div><a href="https://www.instagram.com/joshpoms"><FontAwesomeIcon icon={faInstagram}/>Josh Poms</a></div>
                 <div><a href="https://www.twitter.com/joshpoms"><FontAwesomeIcon icon={faTwitter}/>Josh Poms</a></div>
-                <div><a href="https://github.com/midnightmasterminds"><FontAwesomeIcon icon={faGithub}/>MM</a></div>
+                <div><a href="https://github.com/midnightmastermind"><FontAwesomeIcon icon={faGithub}/>MM</a></div>
               </div>
             </div>
           </div>

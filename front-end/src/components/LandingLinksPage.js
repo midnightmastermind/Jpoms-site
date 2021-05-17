@@ -50,7 +50,7 @@ class LandingLinksPage extends Component {
         						<a className="Landing-link" color="inherit" href="http://rainbowconnectionbus.com"><FontAwesomeIcon className="icon" icon={faBus}/>Skoolie</a>
         						<a className="Landing-link" color="inherit" href="https://www.facebook.com/joshpoms"><FontAwesomeIcon className="icon" icon={faFacebookF}/>Facebook</a>
         						<a className="Landing-link" color="inherit" href="https://www.twitter.com/joshpoms"><FontAwesomeIcon className="icon" icon={faTwitter}/>Twitter</a>
-        						<a className="Landing-link" color="inherit" href="https://github.com/midnightmasterminds"><FontAwesomeIcon   className="icon" icon={faGithub}/>Github</a>
+        						<a className="Landing-link" color="inherit" href="https://github.com/midnightmastermind"><FontAwesomeIcon   className="icon" icon={faGithub}/>Github</a>
         					</div>
           			</div>
         		  </div>
