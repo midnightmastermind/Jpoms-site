@@ -23,6 +23,8 @@
 }
 .Landing-contact a{
   color: white;
+  text-decoration: none;
+  cursor: pointer;
 }
 .Landing-links {
   display: flex;
@@ -33,6 +35,8 @@
   margin-top: 10px;
   color: white;
   border: 1px solid white;
+  cursor: pointer;
+  text-decoration: none;
   padding: 10px 25px;
   display: flex;
   align-items: center;
