@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { Link } from "react-router-dom";
-import jpoms from '../jpoms4.jpg';
+import jpoms from '../jpoms.png';
 import { faHome, faBus, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF, faInstagram, faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
