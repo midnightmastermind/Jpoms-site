@@ -78,13 +78,15 @@ class MenuHeader extends Component {
 				          onClose={this.handleClose}
 				        	>
 				          <MenuItem onClick={this.handleClose} component={ Link } to="/">home</MenuItem>
-				          <MenuItem onClick={this.handleClose} component={ Link } to="/about">about</MenuItem>
+                  <MenuItem onClick={this.handleClose} component={ Link } to="/services">services</MenuItem>
+    						  <MenuItem onClick={this.handleClose} component={ Link } to="/history">history</MenuItem>
+				          {/*<MenuItem onClick={this.handleClose} component={ Link } to="/about">about</MenuItem>
 						  <MenuItem onClick={this.handleClose} component={ Link } to="/blog">blog</MenuItem>
 						  <MenuItem onClick={this.handleClose} component={ Link } to="/services">services</MenuItem>
 						  <MenuItem onClick={this.handleClose} component={ Link } to="/history">history</MenuItem>
 				  		<MenuItem onClick={this.handleClose} component={ Link } to="/cats">cats</MenuItem>
 						  <MenuItem onClick={this.handleClose} component={ Link } to="/projectzeno">project zeno</MenuItem>
-						  <MenuItem onClick={this.handleClose} component={ Link } to="/jessica">jessica</MenuItem>
+						  <MenuItem onClick={this.handleClose} component={ Link } to="/jessica">jessica</MenuItem>*/}
 				        </Menu>
 					</Toolbar>
 				  </AppBar>
@@ -100,13 +102,15 @@ class MenuHeader extends Component {
       	          </div>
 					<Toolbar className={classes.toolbar}>
 					  <Button color="inherit" component={ Link } to="/">home</Button>
-					    <Button color="inherit" component={ Link } to="/about">about</Button>
+            <Button color="inherit" component={ Link } to="/blog">blog</Button>
+            <Button color="inherit" component={ Link } to="/services">services</Button>
+					   { /*<Button color="inherit" component={ Link } to="/about">about</Button>
 					    <Button color="inherit" component={ Link } to="/blog">blog</Button>
 					    <Button color="inherit" component={ Link } to="/services">services</Button>
 					    <Button color="inherit" component={ Link } to="/history">history</Button>
 						<Button color="inherit" component={ Link } to="/cats">cats</Button>
 						<Button color="inherit" component={ Link } to="/projectzeno">project zeno</Button>
-						<Button color="inherit" component={ Link } to="/jessica">jessica</Button>
+						<Button color="inherit" component={ Link } to="/jessica">jessica</Button>*/}
 					</Toolbar>
 				  </AppBar>
 				</div>

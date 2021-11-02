@@ -5,6 +5,7 @@ import { fetchHistory } from "./actions/historyActions";
 
 import { Provider } from "react-redux";
 import store from "./store";
+import Particles from 'react-particles-js';
 
 import MenuHeader from './components/MenuHeader';
 import LandingPage from './components/LandingPage';
@@ -18,37 +19,25 @@ import CatsPage from './components/CatsPage';
 import ProjectZenoPage from './components/ProjectZenoPage';
 import JessicaPage from './components/JessicaPage';
 import SocialPage from './components/SocialPage';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
+
 
 class App extends Component {
     	constructor(props) {
           super(props);
-          this.state = {
-    		  width: window.innerWidth
-    	  }
         }
- 	componentWillMount() {
-	 	  window.addEventListener('resize', this.handleWindowSizeChange);
-	 }
-
-	 componentWillUnmount() {
-	 	window.removeEventListener('resize', this.handleWindowSizeChange);
-	  }
-	handleWindowSizeChange = () => {
-		this.setState({ width: window.innerWidth });
-	};
   render() {
-    const { width } = this.state;
-	  const isMobile = width <= 775;
     return (
     	<Provider store={store}>
       <div className="App">
-        <div className="App-header-container">
-            <MenuHeader isMobile={isMobile}/>
-        </div>
+        <Particles
+        style={{ position: "absolute" }}
+        height="100vh"
+        width="100%"
+          />
         <div className="App-pages">
           <Switch>
-             <Route path="/about" component={ AboutPage } />
+             {/*<Route path="/about" component={ AboutPage } />
     		     <Route path="/blog" component={ BlogPage } />
     		     <Route path="/services" component={ ServicesPage } />
     		     <Route path="/history" component={ HistoryPage } />
@@ -56,7 +45,7 @@ class App extends Component {
     		     <Route path="/cats" component={ CatsPage } />
     		     <Route path="/projectzeno" component={ ProjectZenoPage } />
     		     <Route path="/jessica" component={ JessicaPage } />
-    		     <Route path="/social" component={ SocialPage } />
+    		     <Route path="/social" component={ SocialPage } />*/}
     		     <Route exact path="/" component={ LandingLinksPage } />
     		  </Switch>
         </div>

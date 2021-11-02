@@ -4,7 +4,7 @@
  font-family: monospace;
 }
 .App-title {
-	position: fixed; 
+	position: fixed;
 	top: 0px;
 	right: 0px;
 	padding-right: 10px;
@@ -52,9 +52,10 @@
 }
 
 .App-logo {
-  height: 80px;
-  width: 80px;
+  height: 150px;
+  width: 150px;
   border-radius: 50%;
+  border: 1px solid white;
 }
 
 .App-header-container {
@@ -100,7 +101,7 @@
     height: 700px;
     width: 100%;
     /* Location of the image */
-   
+
 
     /* Background image is centered vertically and horizontally at all times */
     background-position: center center;
@@ -174,6 +175,9 @@
     align-items: center;
     font-size: 10px;
     width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
 @media only screen and (max-width: 1050px) {
@@ -248,11 +252,6 @@ html, body {
 
 .App-pages {
 	width: 100%;
-    background: url("serenity.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover; 
 }
 .App-page {
 	width: 100%;
@@ -273,12 +272,15 @@ html, body {
     border: 1px solid white;
     padding: 25px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+}
+.Landing-info {
+  margin-right: 25px;
 }
 .App-content-body {
 	padding: 25px;
-}	
+}
 .Landing-page {
   padding-top: 0px;
 }
@@ -295,7 +297,7 @@ html, body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover; 
+  background-size: cover;
   z-index: 100;
   position: fixed;
 }
@@ -305,15 +307,14 @@ html, body {
 	height: 100vh;
 	top: 0px;
 	left: 0px;
-	background-image: url("./serenity.jpg");
 	display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 50px;
+  padding-top: 250px;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover; 
+  background-size: cover;
   z-index: 100;
   position: fixed;
 }
@@ -326,7 +327,7 @@ html, body {
 	border-radius: 25px;
 	display: flex;
 	padding: 10px;
-	
+
 }
 .profile-card-image {
 	max-width: 50%;
@@ -403,4 +404,8 @@ html, body {
 .App-content-section-contacts a{
 	font-size: 9px;
 	color: white;
+}
+
+.App {
+  height: 100vh;
 }
