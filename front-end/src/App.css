@@ -42,6 +42,9 @@
   align-items: center;
   justify-content: center;
 }
+.Landing-link:hover {
+  background-color: #C46464;
+}
 .Landing-link .icon {
   padding-right: 5px;
 }
@@ -55,7 +58,7 @@
   height: 150px;
   width: 150px;
   border-radius: 50%;
-  border: 1px solid #843b62;
+  border: 1px solid #f67e7d;
 }
 
 .App-header-container {
@@ -263,7 +266,7 @@ html, body {
     background-color: rgba(246,126,125,0.3);
     border-radius: 25px;
     color: white;
-    border: 1px solid #843b62;
+    border: 1px solid #f67e7d;
     padding: 50px;
     display: flex;
     flex-direction: row;
