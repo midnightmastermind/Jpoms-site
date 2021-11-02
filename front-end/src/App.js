@@ -30,28 +30,22 @@ class App extends Component {
     return (
     	<Provider store={store}>
       <div className="App">
-        <Particles
-        height="100vh"
-        width="100%"
-        params={{
-           particles: {
-             number: {
-               value: 50
-             },
-             size: {
-               value: 3
-             }
-           },
-           interactivity: {
-             events: {
-               onhover: {
-                 enable: true,
-                 mode: 'repulse'
+        <div style={{backgroundColor: "#333"}}>
+          <Particles
+          height="100vh"
+          width="100%"
+          params={{
+             particles: {
+               number: {
+                 value: 100
+               },
+               size: {
+                 value: 5
                }
              }
-           }
-         }}
-          />
+           }}
+            />
+          </div>
         <div className="App-pages">
           <Switch>
              {/*<Route path="/about" component={ AboutPage } />
