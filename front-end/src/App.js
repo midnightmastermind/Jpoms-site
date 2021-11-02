@@ -40,81 +40,45 @@ const App = () => {
         init={particlesInit}
         loaded={particlesLoaded}
         options={{
+          fpsLimit: 60,
           background: {
-            color: {
-              value: "#222",
-            },
+            color: "#222"
           },
-          fpsLimit: 30,
-          interactivity: {
-            events: {
-              onClick: {
-                enable: true,
-                mode: "push",
-              },
-              onHover: {
-                enable: true,
-                mode: "repulse",
-              },
-              resize: true,
-            },
-            modes: {
-              bubble: {
-                distance: 400,
-                duration: 2,
-                opacity: 0.8,
-                size: 40,
-              },
-              push: {
-                quantity: 4,
-              },
-              repulse: {
-                distance: 200,
-                duration: 0.4,
-              },
-            },
+          backgroundMode: {
+            enable: true
           },
           particles: {
             color: {
-              value: "#ffffff",
+              value: ["#f67e7d", "#843b62", "#621940"]
             },
             links: {
-              color: "#ffffff",
-              distance: 150,
-              enable: true,
-              opacity: 0.5,
-              width: 1,
-            },
-            collisions: {
-              enable: true,
+              color: "#ffb997",
+              enable: true
             },
             move: {
-              direction: "none",
               enable: true,
-              outMode: "bounce",
-              random: false,
-              speed: 2,
-              straight: false,
-            },
-            number: {
-              density: {
-                enable: true,
-                value_area: 800,
-              },
-              value: 80,
-            },
-            opacity: {
-              value: 0.5,
-            },
-            shape: {
-              type: "circle",
+              speed: 6
             },
             size: {
-              random: true,
               value: 5,
+              random: {
+                enable: true,
+                minimumValue: 1
+              },
+              animation: {
+                enable: true,
+                speed: 2.5,
+                minimumValue: 1
+              }
             },
-          },
-          detectRetina: false,
+            opacity: {
+              value: 0.8,
+              random: {
+                enable: true,
+                minimumValue: 0.4
+              }
+            }
+          }
         }}
       />
           />

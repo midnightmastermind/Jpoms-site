@@ -55,7 +55,7 @@
   height: 150px;
   width: 150px;
   border-radius: 50%;
-  border: 1px solid white;
+  border: 1px solid #843b62;
 }
 
 .App-header-container {
@@ -257,7 +257,7 @@ html, body {
 	width: 100%;
 	margin: 0 auto;
   max-width: 700px;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(246,126,125,0.3);
   border-radius: 25px;
   color: white;
   border: 1px solid white;
@@ -266,11 +266,11 @@ html, body {
   display: flex;
 }
 .App-welcomescreen {
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(246,126,125,0.3);
     border-radius: 25px;
     color: white;
-    border: 1px solid white;
-    padding: 25px;
+    border: 1px solid #843b62;
+    padding: 50px;
     display: flex;
     flex-direction: row;
     align-items: center;
