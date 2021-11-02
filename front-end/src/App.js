@@ -31,7 +31,6 @@ class App extends Component {
     	<Provider store={store}>
       <div className="App">
         <Particles
-        style={{ position: "absolute" }}
         height="100vh"
         width="100%"
           />

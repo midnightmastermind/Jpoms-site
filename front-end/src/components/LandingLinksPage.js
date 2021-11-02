@@ -37,7 +37,7 @@ class LandingLinksPage extends Component {
               				  <div>Full Stack Web Developer</div>
               				  <div>Stoic / AA Member</div>
               				  <div>Martial Artist</div>
-              				  <div>Aspiring Renaissnce Man</div>
+              				  <div>Aspiring Renaissance Man</div>
               				  <div>Skoolie Owner</div>
               				  <div>Comedy Enthusiast</div>
               				 </div>
