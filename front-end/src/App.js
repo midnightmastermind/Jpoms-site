@@ -33,6 +33,24 @@ class App extends Component {
         <Particles
         height="100vh"
         width="100%"
+        params={{
+           particles: {
+             number: {
+               value: 50
+             },
+             size: {
+               value: 3
+             }
+           },
+           interactivity: {
+             events: {
+               onhover: {
+                 enable: true,
+                 mode: 'repulse'
+               }
+             }
+           }
+         }}
           />
         <div className="App-pages">
           <Switch>
