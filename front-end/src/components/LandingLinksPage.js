@@ -39,7 +39,7 @@ class LandingLinksPage extends Component {
               				  <div>Martial Artist</div>
               				  <div>Aspiring Renaissance Man</div>
               				  <div>Skoolie Owner</div>
-              				  <div>Comedy Enthusiast</div>
+              				  <div>Comedy / Story Enthusiast</div>
               				 </div>
                     </div>
             			  <div className="Landing-contact">
