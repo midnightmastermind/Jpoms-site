@@ -564,7 +564,7 @@ html, body {
   opacity: .5;
 }
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .reference-container {
