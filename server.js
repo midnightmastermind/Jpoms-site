@@ -20,8 +20,7 @@ app.use(
   })
 );
 app.use(bodyParser.json());
-app.options("*", cors({ origin: 'http://jpoms.com', optionsSuccessStatus: 200 }));
-app.use(cors({ origin: "http://jpoms.com", optionsSuccessStatus: 200 }));
+
 const db = require("./back-end/config/keys").mongoURI;
 mongoose.connect(db, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }
 );
@@ -30,15 +29,6 @@ connection.once('open', () => {
     console.log("MongoDB database connection established successfully");
 })
 
-const proxy = require('http-proxy-middleware');
-
-module.exports = function (app) {
-    app.use(proxy('/api', {
-        target: 'http://jpoms.com',
-        logLevel: 'debug',
-        changeOrigin: true
-    }));
-};
 // Routes
 app.use("/history", historyRouter);
 

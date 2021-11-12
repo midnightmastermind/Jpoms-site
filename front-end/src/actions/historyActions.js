@@ -11,12 +11,12 @@ export const fetchHistory = dispatch => {
   return dispatch => {
     dispatch(requestHistory())
     return axios
-    .get("http://192.168.3.133:3001/history", {
+    .get("http://localhost:3001/history", {
         headers: {
           'Access-Control-Allow-Origin' : '*',
           'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
         },
-        responseType: "json",
+        responseType: "json"
       })
     .then(res => {
       console.log(res);
