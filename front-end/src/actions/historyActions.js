@@ -1,5 +1,5 @@
 import axios from "axios";
-//axios.defaults.baseURL = 'http://127.0.0.1:3001';
+//axios.defaults.baseURL = 'http://localhost:3001';
 
 import {
   REQUEST_HISTORY,
@@ -12,7 +12,15 @@ export const fetchHistory = dispatch => {
   return dispatch => {
     dispatch(requestHistory())
     return axios
-    .get("/api/history")
+    .get("/api/history"{
+  // `proxy` means the request actually goes to the server listening
+  // on localhost:3000, but the request says it is meant for
+  // 'http://httpbin.org/get?answer=42'
+  proxy: {
+    host: 'localhost',
+    port: 3001
+  }
+})
     .then(res => {
       console.log(res);
       const history = res.data;
