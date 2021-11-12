@@ -48,17 +48,3 @@ io.on('connection', socket => {
 })
 
 server.listen(port, () => console.log(`Listening on port ${port}`))
-
-// import packages
-const https = require('https');
-const fs = require('fs');
-
-// serve the API with signed certificate on 443 (SSL/HTTPS) port
-const httpsServer = https.createServer({
-  key: fs.readFileSync('/etc/apache2/certificate/apache.key'),
-  cert: fs.readFileSync('/etc/apache2/certificate/apache-certificate.crt'),
-}, app);
-
-httpsServer.listen(443, () => {
-    console.log('HTTPS Server running on port 443');
-});
