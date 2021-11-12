@@ -20,8 +20,8 @@ app.use(
   })
 );
 app.use(bodyParser.json());
-app.options("*", cors({ origin: 'http://localhost:3000', optionsSuccessStatus: 200 }));
-app.use(cors({ origin: "http://localhost:3000", optionsSuccessStatus: 200 }));
+app.options("*", cors({ origin: 'http://jpoms.com', optionsSuccessStatus: 200 }));
+app.use(cors({ origin: "http://jpoms.com", optionsSuccessStatus: 200 }));
 const db = require("./back-end/config/keys").mongoURI;
 mongoose.connect(db, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }
 );
