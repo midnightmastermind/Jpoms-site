@@ -30,7 +30,15 @@ connection.once('open', () => {
     console.log("MongoDB database connection established successfully");
 })
 
+const proxy = require('http-proxy-middleware');
 
+module.exports = function (app) {
+    app.use(proxy('/api', {
+        target: 'http://www.api.com',
+        logLevel: 'debug',
+        changeOrigin: true
+    }));
+};
 // Routes
 app.use("/history", historyRouter);
 
