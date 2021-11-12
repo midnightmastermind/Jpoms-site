@@ -11,7 +11,7 @@ export const fetchHistory = dispatch => {
   return dispatch => {
     dispatch(requestHistory())
     return axios
-    .get("http://jpoms.com:3001/history")
+    .get("http://192.168.3.133:3001/history")
     .then(res => {
       console.log(res);
       const history = res.data;
