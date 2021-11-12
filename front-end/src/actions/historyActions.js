@@ -11,13 +11,7 @@ export const fetchHistory = dispatch => {
   return dispatch => {
     dispatch(requestHistory())
     return axios
-    .get("http://localhost:3001/api/history", {
-        headers: {
-          'Access-Control-Allow-Origin' : '*',
-          'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-        },
-        responseType: "json"
-      })
+    .get("http://localhost:3001/api/history")
     .then(res => {
       console.log(res);
       const history = res.data;
