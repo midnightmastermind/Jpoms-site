@@ -1,4 +1,5 @@
 import axios from "axios";
+axios.defaults.baseURL = 'http://localhost:3001';
 
 import {
   REQUEST_HISTORY,
@@ -11,7 +12,7 @@ export const fetchHistory = dispatch => {
   return dispatch => {
     dispatch(requestHistory())
     return axios
-    .get("http://localhost:3001/api/history")
+    .get("/api/history")
     .then(res => {
       console.log(res);
       const history = res.data;
