@@ -1,5 +1,4 @@
 import axios from "axios";
-axios.defaults.baseURL = 'http://localhost:3001';
 
 import {
   REQUEST_HISTORY,
@@ -7,20 +6,20 @@ import {
   GET_ERRORS
 } from "./types";
 
+const env = process.env.NODE_ENV; // current environment
+
+export const app = axios.create({
+  baseURL:
+    env === 'production'
+      ? 'http://jpoms.com/api/' // production
+      : 'http://localhost:3001/api/', // development
+});
 
 export const fetchHistory = dispatch => {
   return dispatch => {
     dispatch(requestHistory())
-    return axios
-    .get("/api/history",{
-  // `proxy` means the request actually goes to the server listening
-  // on localhost:3000, but the request says it is meant for
-  // 'http://httpbin.org/get?answer=42'
-  proxy: {
-    host: 'localhost',
-    port: 3001
-  }
-})
+    return app
+    .get("/history")
     .then(res => {
       console.log(res);
       const history = res.data;
