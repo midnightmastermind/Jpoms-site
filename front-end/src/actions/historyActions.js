@@ -11,8 +11,9 @@ export const fetchHistory = dispatch => {
   return dispatch => {
     dispatch(requestHistory())
     return axios
-    .get("/api/history")
+    .get("http://localhost:3001/history")
     .then(res => {
+      console.log(res);
       const history = res.data;
       dispatch(receiveHistory(history));
     })
@@ -56,4 +57,9 @@ export const requestHistory = () => {
     return {
         type: REQUEST_HISTORY
     };
+};
+
+export default {
+  fetchHistory,
+  receiveHistory
 };

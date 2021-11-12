@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
 import { Link } from "react-router-dom";
 import jpoms from '../jpoms.png';
-import { faHome, faBus, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faBus, faPhone, faEnvelope, faHistory } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF, faInstagram, faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { tsParticles } from "tsparticles";
@@ -31,7 +30,7 @@ class LandingLinksPage extends Component {
               	<div className="App-welcomescreen">
                   <div className="Landing-info">
           					<div className="Landing-title">
-                       <img src={jpoms} className="App-logo" alt="logo" />
+                       <img src={jpoms} className="App-profile" alt="profile" />
           	         	  <h2>Josh Pomerenke</h2>
               				 <div className="titles">
               				  <div>Full Stack Web Developer</div>
@@ -50,7 +49,8 @@ class LandingLinksPage extends Component {
           					</div>
                   </div>
           			  <div className="Landing-links">
-        						{/*<a className="Landing-link" color="inherit" href="/about"><FontAwesomeIcon className="icon" icon={faHome}/>Enter Website</a>*/}
+        						{
+                    <Link to="/history" className="Landing-link" color="inherit" href="/history"><FontAwesomeIcon className="icon" icon={faHistory}/>History</Link>}
         						<a className="Landing-link" color="inherit" href="https://www.instagram.com/joshpoms"><FontAwesomeIcon className="icon" icon={faInstagram}/>Instagram</a>
         						<a className="Landing-link" color="inherit" href="http://rainbowconnectionbus.com"><FontAwesomeIcon className="icon" icon={faBus}/>Skoolie</a>
         						<a className="Landing-link" color="inherit" href="https://www.facebook.com/joshpoms"><FontAwesomeIcon className="icon" icon={faFacebookF}/>Facebook</a>

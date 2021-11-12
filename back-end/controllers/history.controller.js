@@ -3,9 +3,13 @@ const express = require("express");
 const mongoose = require('mongoose');
 // Display history of all historys.
 exports.history = function(req, res) {
-    History.findOne()
-        .then(historys => res.json(historys))
+    History.find({},'date name org description reference type tags files').sort(('-date'))
+        .then(history => {
+          console.log(history);
+          res.json(history);
+        })
         .catch(err => res.status(400).json('Error: ' + err));
+    //res.send(history);
 };
 
 // Display detail page for a specific history.

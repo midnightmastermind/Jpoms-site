@@ -54,7 +54,7 @@
   overflow-x: hidden;
 }
 
-.App-logo {
+.App-profile {
   height: 150px;
   width: 150px;
   border-radius: 50%;
@@ -414,4 +414,195 @@ html, body {
   .LandingLinks-page .App-splashscreen {
     padding-top: 100px;
   }
+}
+
+.History-page {
+  padding-top: 5px;
+}
+
+.timeline-card-content {
+  border: 1px solid white;
+}
+
+.App-logo {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.left-side-history {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.right-side-history {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+.back-button {
+  padding: 10px;
+  left: 0;
+}
+.back-button .icon {
+  height: 50px;
+  width: 50px;
+  color: #f67e7d;
+}
+
+.download-button {
+  padding: 10px;
+  left: 0;
+}
+.download-button .icon {
+  height: 50px;
+  width: 50px;
+  color: #f67e7d;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+.history-tags {
+  margin-top: 25px;
+  background-color: rgba(246,126,125,0.3);
+  border-radius: 25px;
+  color: white;
+  border: 1px solid #f67e7d;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.loading-icon {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  top: 40%;
+  right: 40%;
+  animation: rotation 2s infinite linear;
+}
+.tags-title {
+  align-self: center;
+  text-decoration: underline;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.timeline-card-content header {
+  border-bottom: 1px solid white;
+}
+.event-type {
+  font-weight: bold;
+  font-size: 14px;
+  color: rgba(246,126,125,0.3);
+  width: 95%;
+}
+
+.left .event-type {
+  text-align: right;
+}
+.current-projects {
+  margin-top: 25px;
+  background-color: rgba(246,126,125,0.3);
+  border-radius: 25px;
+  color: white;
+  border: 1px solid #f67e7d;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.projects-title {
+  align-self: center;
+  text-decoration: underline;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.using-icon {
+  padding-bottom: 2px;
+  padding-right: 1px;
+  background-color: rgba(246,126,125,0.3) !important;
+}
+
+.card-description {
+  max-width: auto !important;
+  width: 100% !important;
+  margin: 0px !important;
+}
+
+.event-media {
+  display: flex;
+  flex-direction: row;
+  max-width: 288px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.event-media img {
+  height: 100px;
+  width: auto;
+  padding: 10px;
+  opacity: .5;
+}
+.hidden {
+  display: none;
+}
+
+.reference-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.reference {
+  padding-right: 5px;
+}
+.reason, .reference {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.timeline-card-content {
+  min-height: auto !important;
+}
+.history-event {
+  width: 100%;
+}
+li {
+  margin-left: 15px;
+  list-style-type: circle;
+}
+li::marker {
+  color: white;
+  font-size: 1.2em;
+}
+
+.markdown {
+  margin: 0px 10px;
+  max-width: 90%;
+}
+td {
+  padding: 3px;
+}
+
+.right-side-history, .current-projects {
+  display: none;
 }

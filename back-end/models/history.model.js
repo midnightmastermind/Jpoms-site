@@ -4,10 +4,13 @@ const Schema = mongoose.Schema;
 //create schema
 const HistorySchema = new Schema({
     name: {type: String},
-    startDate: {type: Date},
-    endDate: {type: Date},
+    org: {type: String },
+    type: {type: String },
+    date: {type: Date},
     description: {type: String},
-    tags: [{type: String}]
+    tags: [{type: String}],
+    reference: {type: String},
+    files: {type: String}
 })
 
 // BlockSchema.post('findOneAndUpdate', function(doc, next) {
@@ -16,7 +19,7 @@ const HistorySchema = new Schema({
 //   next();
 // });
 //create model
-const History = mongoose.model('History', HistorySchema);
+const History = mongoose.model('History', HistorySchema, 'history');
 
 
 module.exports = History;

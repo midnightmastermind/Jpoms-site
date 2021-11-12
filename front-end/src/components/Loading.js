@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import loading_icon from '../images/loading_icon.gif';
+import loading_icon from '../jplogo.png';
 
 class Loading extends Component {
   render() {
     return (
       <div className="App-page Loading-page">
-	  	<div>Loading</div>
-        <img src={loading_icon} />
-	  </div>
+        <img className="loading-icon" src={loading_icon} />
+	    </div>
         )
       }
 }
