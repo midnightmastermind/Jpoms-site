@@ -12,7 +12,7 @@ export const fetchHistory = dispatch => {
   return dispatch => {
     dispatch(requestHistory())
     return axios
-    .get("/api/history"{
+    .get("/api/history",{
   // `proxy` means the request actually goes to the server listening
   // on localhost:3000, but the request says it is meant for
   // 'http://httpbin.org/get?answer=42'
