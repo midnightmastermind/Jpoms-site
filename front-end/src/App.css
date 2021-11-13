@@ -256,7 +256,6 @@ html, body {
 .App-page {
 	width: 100%;
 	margin: 0 auto;
-  max-width: 700px;
   background-color: rgba(246,126,125,0.3);
   border-radius: 25px;
   color: white;
@@ -432,7 +431,8 @@ html, body {
 }
 
 .history-section {
-  max-width: 700px;
+  max-width: 900px;
+  margin: 0 auto;
   margin-right: 10px;
 }
 
@@ -444,95 +444,10 @@ html, body {
   flex-direction: column;
 }
 
-@media only screen and (max-width: 1500px) {
-  .left-side-history {
-    flex-direction: column;
-  }
-
-  .right-side-history {
-    flex-direction: column;
-  }
-  .filter-options {
-    width: 100px;
-    height: 200px;
-  }
-}
-@media only screen and (max-width: 1015px) {
-	.App-splashscreen {
-		background-position-x: -45px;
-	}
-  .LandingLinks-page .App-splashscreen {
-    padding-top: 100px;
-  }
-  .side-bars {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    margin: 0 auto;
-  }
-
-  .history-section {
-    height: 73vh !important;
-    max-width: 100vh;
-  }
-
-  .left-side-history {
-    display: flex;
-    position: relative;
-    flex-direction: row;
-  }
-  .right-side-history {
-    display: flex;
-    flex-direction: row;
-    position: relative;
-  }
-  .history-tags {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-  }
-  .download-button {
-    order: 2;
-  }
-  .filter-options {
-    min-width: 300px;
-    height: 115px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-  }
+.App-content {
+  margin: 0 auto;
 }
 
-@media only screen and (max-width: 688px) {
-  .history-section {
-    max-width: 100vw;
-  }
-
-  .App-content {
-    max-width: 100%;
-  }
-
-  .timeline-main-wrapper {
-    padding-left: 0px !important;
-  }
-  .side-bars {
-    flex-direction: column;
-    max-width: 100vw;
-    margin: 0;
-    align-items: center;
-  }
-  .left-side-history {
-    max-height: 50px;
-  }
-  .history-section {
-    width: 100vw;
-    height: auto;
-  }
-  .filter-options {
-    min-width: 200px;
-  }
-}
 
 .History-page {
   padding-top: 5px;
@@ -652,7 +567,8 @@ html, body {
 .event-media {
   display: flex;
   flex-direction: row;
-  max-width: 288px;
+  max-width: 350px;
+  width: auto;
   overflow-x: scroll;
   overflow-y: hidden;
 }
@@ -712,4 +628,169 @@ td {
   vertical-align: middle;
   display: flex;
   margin-top: 4px;
+}
+
+@media only screen and (max-width: 1725px) {
+  .left-side-history {
+    flex-direction: column;
+  }
+
+  .right-side-history {
+    flex-direction: column;
+  }
+  .filter-options {
+    width: 100px;
+    height: 200px;
+  }
+
+}
+@media only screen and (max-width: 1225px) {
+	.App-splashscreen {
+		background-position-x: -45px;
+	}
+  .LandingLinks-page .App-splashscreen {
+    padding-top: 100px;
+  }
+  .side-bars {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .history-section {
+    height: 73vh !important;
+    max-width: 100%;
+  }
+
+  .left-side-history {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+  }
+  .right-side-history {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+  }
+  .history-tags {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .download-button {
+    order: 2;
+  }
+  .filter-options {
+    min-width: 300px;
+    height: 115px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .timeline-main-wrapper {
+    padding-left: 0px !important;
+  }
+  .event-media {
+    max-width: 500px;
+  }
+}
+@media only screen and (max-width: 1148px) {
+  .event-media {
+    max-width: 400px;
+  }
+}
+@media only screen and (max-width: 940px) {
+  .event-media {
+    max-width: 300px;
+  }
+}
+@media only screen and (max-width: 724px) {
+  .event-media {
+    max-width: 250px;
+  }
+}
+@media only screen and (max-width: 688px) {
+  .history-section {
+    max-width: 100%;
+  }
+
+  .App-content {
+    max-width: 100%;
+  }
+
+  .timeline-main-wrapper {
+    padding-left: 0px !important;
+  }
+  .side-bars {
+    flex-direction: column;
+    max-width: 100vw;
+    margin: 0;
+    align-items: center;
+  }
+  .left-side-history {
+    max-height: 50px;
+  }
+  .history-section {
+    width: 100vw;
+    height: auto;
+  }
+  .filter-options {
+    min-width: 200px;
+  }
+  .event-media {
+    max-width: 200px;
+  }
+  .reference-container {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 510px) {
+  .event-media {
+    max-width: 150px;
+  }
+  .App-logo {
+    height: 50px;
+    width: 50px;
+  }
+}
+@media only screen and (max-width: 415px) {
+  .event-media {
+    max-width: 100px;
+    margin: 0 auto;
+  }
+  .App-content {
+    margin: 0px;
+  }
+  .timeline-card-content {
+    max-width: 100%;
+  }
+  .markdown {
+    margin: 0px;
+    font-size: 10.5px;
+  }
+  .reason, .reference {
+    font-size: 12px;
+  }
+  .card-sub-title {
+    width: 94% !important;
+  }
+  .card-title {
+    font-size: 12px !important;
+  }
+
+  .card-description {
+    padding-left: 2px !important;
+  }
+  .history-section {
+    height: 63vh !important;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .history-section {
+    height: 53vh !important;
+  }
 }
