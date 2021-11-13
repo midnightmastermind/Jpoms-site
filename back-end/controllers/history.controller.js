@@ -3,7 +3,8 @@ const express = require("express");
 const mongoose = require('mongoose');
 // Display history of all historys.
 exports.history = function(req, res) {
-    History.find({},'date name org description reference type tags files').sort(('-date'))
+    History.find().sort(('-date'))
+        .populate("project")
         .then(history => {
           console.log(history);
           res.json(history);

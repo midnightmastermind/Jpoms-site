@@ -10,7 +10,12 @@ const HistorySchema = new Schema({
     description: {type: String},
     tags: [{type: String}],
     reference: {type: String},
-    files: {type: String}
+    files: {type: String},
+    project: {
+       type: Schema.Types.ObjectId,
+       ref: "Project"
+     },
+     date_two: {type: Date},
 })
 
 // BlockSchema.post('findOneAndUpdate', function(doc, next) {

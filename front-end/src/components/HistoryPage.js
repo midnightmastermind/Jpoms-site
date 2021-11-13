@@ -67,7 +67,7 @@ class HistoryPage extends Component {
            history_media.push(images[item].default)
         }
       });
-      console.log(history_media);
+
       let history_dom = (<div className="history-event" key={history_event.id}><div className="event-type">{eventMap[history_event.type]}</div><div><ReactMarkdown className="markdown" children={history_event.description} /></div></div>);
       if (history_event.type == "newjob") {
           history_dom = (<div className="history-event newjob-event" key={history_event.id}>
@@ -99,18 +99,18 @@ class HistoryPage extends Component {
     }
 
     displayIcon(history_event) {
-      let icon = <FontAwesomeIcon className="icon" icon={faQuestion}/>;
+      let icon = <FontAwesomeIcon className="icon" key={history_event.id} icon={faQuestion}/>;
 
       if (history_event.type == "newjob") {
-        icon = (<FontAwesomeIcon className="icon" icon={faBriefcase}/>);
+        icon = (<FontAwesomeIcon className="icon" key={history_event.id} icon={faBriefcase}/>);
       } else if (history_event.type == "endjob") {
-        icon = (<FontAwesomeIcon className="icon" icon={faDoorClosed}/>);
+        icon = (<FontAwesomeIcon className="icon" key={history_event.id} icon={faDoorClosed}/>);
       } else if (history_event.type == "education") {
-        icon = (<FontAwesomeIcon className="icon" icon={faSchool}/>);
+        icon = (<FontAwesomeIcon className="icon" key={history_event.id} icon={faSchool}/>);
       } else if (history_event.type == "graduation") {
-        icon = (<FontAwesomeIcon className="icon" icon={faGraduationCap}/>);
+        icon = (<FontAwesomeIcon className="icon" key={history_event.id} icon={faGraduationCap}/>);
       } else if (history_event.type == "promotion") {
-        icon = (<FontAwesomeIcon className="icon" icon={faThumbsUp}/>);
+        icon = (<FontAwesomeIcon className="icon" key={history_event.id} icon={faThumbsUp}/>);
       }
 
       return icon;
@@ -136,36 +136,40 @@ class HistoryPage extends Component {
       if (this.state.history.length == 0) {
         return (<Loading />);
       }
-      console.log(images);
+
       const filters = this.state.filters;
-      console.log(this.state.history)
+
       return (
         <div className="App-page History-page">
           <div className="App-content">
-            <div className="left-side-history">
-              <Link to="/" className="back-button" color="inherit"><FontAwesomeIcon className="icon" icon={faArrowCircleLeft}/></Link>
-              <div className="current-projects">
-                <div className="projects-title">Current Projects</div>
-                <div className="projects"></div>
+            <div className="side-bars">
+              <div className="left-side-history">
+                <Link to="/" className="back-button" color="inherit"><FontAwesomeIcon className="icon" icon={faArrowCircleLeft}/>/home/history</Link>
+                <div className="current-projects">
+                  <div className="projects-title">Current Projects</div>
+                  <div className="projects"></div>
+                </div>
               </div>
-            </div>
-            <div className="right-side-history">
-              <Link to="/" className="download-button" color="inherit"><FontAwesomeIcon className="icon" icon={faDownload}/></Link>
-              <div className="history-tags">
-                <div className="tags-title">Filters Applied:</div>
-                { filters.map(filter => (
-                  <div className="filter-option" key={filter}>
-                    <input type="checkbox" id="filter-option" name="filter-option"
-                      value={filter}
-                      checked={this.state.activeFilters.includes(filter)}
-                      onClick={() => this.updateFilters(filter)}
-                      />
-                    {filter}
+              <div className="right-side-history">
+                <Link to="/" className="download-button" color="inherit"><FontAwesomeIcon className="icon" icon={faDownload}/></Link>
+                <div className="history-tags">
+                  <div className="tags-title">Filters Applied:</div>
+                  <div className="filter-options">
+                    { filters.map(filter => (
+                      <div className="filter-option" key={filter}>
+                        <input type="checkbox" id="filter-option" name="filter-option"
+                          value={filter}
+                          checked={this.state.activeFilters.includes(filter)}
+                          onClick={() => this.updateFilters(filter)}
+                          />
+                        <div>{filter}</div>
+                      </div>
+                    ))}
                   </div>
-                ))}
+                </div>
               </div>
             </div>
-            <div style={{ width: "100%", height: "95vh" }}>
+            <div className="history-section" style={{ width: "100%", height: "95vh" }}>
               <Chrono items={this.state.history} allowDynamicUpdate={true} hideControls={true} theme={{
                   primary: "rgba(246,126,125,0.3)",
                   secondary: "white",

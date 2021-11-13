@@ -5,7 +5,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require("body-parser");
 const historyRouter = require("./back-end/routes/history");
-
+const projectRouter = require("./back-end/routes/project");
 require('dotenv').config();
 
 // our localhost port
@@ -32,6 +32,7 @@ connection.once('open', () => {
 
 // Routes
 app.use("/api/history", historyRouter);
+app.use("/api/project", projectRouter);
 
 const server = http.createServer(app);
 

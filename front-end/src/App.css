@@ -59,6 +59,9 @@
   width: 150px;
   border-radius: 50%;
   border: 1px solid #f67e7d;
+  background-image: url('./jplogo.png');
+  background-position: center;
+  background-size: contain;
 }
 
 .App-header-container {
@@ -406,32 +409,6 @@ html, body {
 .App {
   height: 100vh;
 }
-
-@media only screen and (max-width: 700px) {
-	.App-splashscreen {
-		background-position-x: -45px;
-	}
-  .LandingLinks-page .App-splashscreen {
-    padding-top: 100px;
-  }
-}
-
-.History-page {
-  padding-top: 5px;
-}
-
-.timeline-card-content {
-  border: 1px solid white;
-}
-
-.App-logo {
-    height: 100px;
-    width: 100px;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-}
-
 .left-side-history {
   position: absolute;
   top: 0;
@@ -453,9 +430,95 @@ html, body {
   flex-direction: column;
   align-items: end;
 }
+
+@media only screen and (max-width: 1000px) {
+	.App-splashscreen {
+		background-position-x: -45px;
+	}
+  .LandingLinks-page .App-splashscreen {
+    padding-top: 100px;
+  }
+  .side-bars {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+
+  }
+
+  .left-side-history {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+  }
+  .right-side-history {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+  }
+  .history-tags {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .download-button {
+    order: 2;
+  }
+  .filter-options {
+    min-width: 300px;
+    height: 115px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+}
+
+@media only screen and (max-width: 688px) {
+  .history-section {
+    max-width: 500px;
+  }
+
+  .App-content {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .timeline-main-wrapper {
+    padding-left: 0px !important;
+  }
+  .side-bars {
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+    align-items: center;
+  }
+}
+.history-section {
+  max-width: 700px;
+  margin-right: 10px;
+}
+.History-page {
+  padding-top: 5px;
+}
+
+.timeline-card-content {
+  border: 1px solid white;
+}
+
+.App-logo {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+
 .back-button {
   padding: 10px;
   left: 0;
+  color: #f67e7d;
 }
 .back-button .icon {
   height: 50px;
@@ -483,7 +546,7 @@ html, body {
 .history-tags {
   margin-top: 25px;
   background-color: rgba(246,126,125,0.3);
-  border-radius: 25px;
+  border-radius: 4px;
   color: white;
   border: 1px solid #f67e7d;
   padding: 15px;
@@ -521,7 +584,7 @@ html, body {
 .current-projects {
   margin-top: 25px;
   background-color: rgba(246,126,125,0.3);
-  border-radius: 25px;
+  border-radius: 4px;
   color: white;
   border: 1px solid #f67e7d;
   padding: 15px;
@@ -603,6 +666,13 @@ td {
   padding: 3px;
 }
 
-.right-side-history, .current-projects {
-  display: none;
+.filter-option input {
+  margin-right: 5px;
+  margin-top: 1px;
+}
+
+.filter-option {
+  vertical-align: middle;
+  display: flex;
+  margin-top: 4px;
 }
