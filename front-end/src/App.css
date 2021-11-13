@@ -755,6 +755,9 @@ td {
     height: 50px;
     width: 50px;
   }
+  .LandingLinks-page .App-splashscreen {
+    padding-top: 100px;
+  }
 }
 @media only screen and (max-width: 415px) {
   .event-media {
