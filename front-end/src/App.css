@@ -631,7 +631,7 @@ td {
   margin-top: 4px;
 }
 
-.card-title, .card-sub-title {
+.card-sub-title {
   color: rgba(246,126,125) !important;
 }
 @media only screen and (max-width: 1725px) {
