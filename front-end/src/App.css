@@ -444,7 +444,10 @@ html, body {
     justify-content: space-between;
     width: 100%;
     margin: 0 auto;
+  }
 
+  .history-section {
+    height: 73vh !important;
   }
 
   .left-side-history {
@@ -492,6 +495,9 @@ html, body {
     max-width: 500px;
     margin: 0 auto;
     align-items: center;
+  }
+  .history-section {
+    height: 62vh !important;
   }
 }
 .history-section {
