@@ -52,6 +52,7 @@
   text-align: center;
   background-color: #222;
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .App-profile {
