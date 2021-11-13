@@ -431,6 +431,11 @@ html, body {
   align-items: end;
 }
 
+.history-section {
+  max-width: 700px;
+  margin-right: 10px;
+}
+
 @media only screen and (max-width: 1000px) {
 	.App-splashscreen {
 		background-position-x: -45px;
@@ -448,6 +453,7 @@ html, body {
 
   .history-section {
     height: 73vh !important;
+    max-width: 100vh;
   }
 
   .left-side-history {
@@ -479,12 +485,11 @@ html, body {
 
 @media only screen and (max-width: 688px) {
   .history-section {
-    max-width: 500px;
+    max-width: 100vw;
   }
 
   .App-content {
-    max-width: 500px;
-    margin: 0 auto;
+    max-width: 100%;
   }
 
   .timeline-main-wrapper {
@@ -492,18 +497,22 @@ html, body {
   }
   .side-bars {
     flex-direction: column;
-    max-width: 500px;
-    margin: 0 auto;
+    max-width: 100vw;
+    margin: 0;
     align-items: center;
   }
+  .left-side-history {
+    max-height: 50px;
+  }
   .history-section {
-    height: 62vh !important;
+    width: 100vw;
+    height: auto;
+  }
+  .filter-options {
+    min-width: 200px;
   }
 }
-.history-section {
-  max-width: 700px;
-  margin-right: 10px;
-}
+
 .History-page {
   padding-top: 5px;
 }
