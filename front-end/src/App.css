@@ -528,11 +528,11 @@ html, body {
   font-weight: bold;
   font-size: 14px;
   color: rgba(246,126,125);
-  width: 95%;
 }
 
 .left .event-type {
   text-align: right;
+  padding-right: 15px;
 }
 .current-projects {
   margin-top: 25px;
