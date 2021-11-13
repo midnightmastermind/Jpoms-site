@@ -527,7 +527,7 @@ html, body {
 .event-type {
   font-weight: bold;
   font-size: 14px;
-  color: rgba(246,126,125,0.3);
+  color: rgba(246,126,125);
   width: 95%;
 }
 
@@ -631,6 +631,9 @@ td {
   margin-top: 4px;
 }
 
+.card-title, .card-sub-title {
+  color: rgba(246,126,125) !important;
+}
 @media only screen and (max-width: 1725px) {
   .left-side-history {
     flex-direction: column;
