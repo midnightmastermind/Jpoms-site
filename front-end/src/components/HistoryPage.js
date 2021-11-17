@@ -154,9 +154,11 @@ class HistoryPage extends Component {
           <div className="App-content">
             <div className="side-bars">
               <div className="left-side-history">
-                <Link to="/" className="back-button" color="inherit"><FontAwesomeIcon className="icon" icon={faArrowCircleLeft}/>/home/history</Link>
-                <div className="current-projects">
-                  <div className="projects-title">Current Projects</div>
+                <Link to="/" className="back-button" color="inherit"><FontAwesomeIcon className="icon" icon={faArrowCircleLeft}/><div className="nav">/home/history</div></Link>
+              </div>
+              <div className="right-side-history">
+              <div className="current-projects">
+                <div className="projects-title">Current Projects</div>
                   <div className="projects">
                     {
                       this.state.project.map(project => {
@@ -167,9 +169,6 @@ class HistoryPage extends Component {
                     }
                   </div>
                 </div>
-              </div>
-              <div className="right-side-history">
-                <Link to="/" className="download-button" color="inherit"><FontAwesomeIcon className="icon" icon={faDownload}/></Link>
                 <div className="history-tags">
                   <div className="tags-title">Filters Applied:</div>
                   <div className="filter-options">

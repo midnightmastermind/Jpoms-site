@@ -703,6 +703,9 @@ td {
   .event-media {
     max-width: 500px;
   }
+  .current-projects {
+    margin-right: 10px;
+  }
 }
 @media only screen and (max-width: 1148px) {
   .event-media {
@@ -739,6 +742,7 @@ td {
   }
   .left-side-history {
     max-height: 50px;
+    position: absolute;
   }
   .history-section {
     width: 100vw;
@@ -753,6 +757,9 @@ td {
   .reference-container {
     flex-direction: column;
   }
+  .right-side-history {
+    font-size: 10px !important;
+  }
 }
 
 @media only screen and (max-width: 510px) {
@@ -766,7 +773,11 @@ td {
   .LandingLinks-page .App-splashscreen {
     padding-top: 100px;
   }
+  .left-side-history {
+    top: -5px;
+  }
 }
+
 @media only screen and (max-width: 415px) {
   .event-media {
     max-width: 100px;
@@ -795,13 +806,13 @@ td {
   .card-description {
     padding-left: 7px !important;
   }
-  .history-section {
-    height: 63vh !important;
-  }
 }
 
 @media only screen and (max-width: 360px) {
-  .history-section {
+  /* .history-section {
     height: 53vh !important;
+  } */
+  .current-projects {
+    margin-right: -12px;
   }
 }
