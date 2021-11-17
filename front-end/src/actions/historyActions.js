@@ -21,7 +21,6 @@ export const fetchHistory = dispatch => {
     return app
     .get("/history")
     .then(res => {
-      console.log(res);
       const history = res.data;
       dispatch(receiveHistory(history));
     })

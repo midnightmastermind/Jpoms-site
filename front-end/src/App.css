@@ -624,7 +624,10 @@ td {
   margin-right: 5px;
   margin-top: 1px;
 }
-
+.filter-options {
+  width: 100px;
+  height: 125px;
+}
 .filter-option {
   vertical-align: middle;
   display: flex;
@@ -638,6 +641,13 @@ td {
 .project a{
   color: white !important;
 }
+
+.warning {
+  position: absolute;
+  top: 45%;
+  right: 45%;
+  font-size: 15px;
+}
 @media only screen and (max-width: 1725px) {
   .left-side-history {
     flex-direction: column;
@@ -646,11 +656,6 @@ td {
   .right-side-history {
     flex-direction: column;
   }
-  .filter-options {
-    width: 100px;
-    height: 200px;
-  }
-
 }
 @media only screen and (max-width: 1225px) {
 	.App-splashscreen {
@@ -691,7 +696,6 @@ td {
     order: 2;
   }
   .filter-options {
-    min-width: 300px;
     height: 115px;
     display: flex;
     flex-direction: column;
@@ -748,17 +752,18 @@ td {
     width: 100vw;
     height: auto;
   }
-  .filter-options {
-    min-width: 200px;
-  }
+
   .event-media {
     max-width: 200px;
   }
   .reference-container {
     flex-direction: column;
   }
-  .right-side-history {
+  /* .right-side-history {
     font-size: 10px !important;
+  } */
+  .left-side-history {
+    top: -5px;
   }
 }
 
@@ -773,9 +778,7 @@ td {
   .LandingLinks-page .App-splashscreen {
     padding-top: 100px;
   }
-  .left-side-history {
-    top: -5px;
-  }
+
 }
 
 @media only screen and (max-width: 415px) {
@@ -809,9 +812,9 @@ td {
 }
 
 @media only screen and (max-width: 360px) {
-  /* .history-section {
-    height: 53vh !important;
-  } */
+  .history-section {
+    height: 63vh !important;
+  }
   .current-projects {
     margin-right: -12px;
   }

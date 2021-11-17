@@ -31,12 +31,20 @@ class HistoryPage extends Component {
    constructor() {
       super();
 
+
       this.state = {
   	    loaded: false,
-        filters: ["carpentry", "compsci", "education", "it", "hospitality", "homecare", "management", "publicsafety", "sales", "community"],
-        activeFilters: ["carpentry","compsci", "education", "it", "hospitality", "homecare", "management", "publicsafety", "sales", "community"],
+        filters: {
+          carpentry: true,
+          compsci: true,
+          education: true,
+          hospitality: true,
+          homecare: true,
+          publicsafety: true
+        },
         history: [],
-        project: []
+        project: [],
+        refresh: false
       }
     }
 
@@ -49,26 +57,24 @@ class HistoryPage extends Component {
       if (this.props.history.history.length != 0 && this.state.history.length == 0 && this.state.loaded == false) {
         this.setState({history: this.props.history.history, loaded: true})
       }
+
       if (this.props.project.project.length != 0 && this.state.project.length == 0) {
         this.setState({project: this.props.project.project})
       }
+
+      if(this.state.refresh) {
+        let history = this.props.history.history;
+        history = history.filter(history_event => {
+          return this.state.filters[history_event.tags[0]]
+        })
+        this.setState({history: history, refresh: false});
+      }
     }
 
-    updateFilters(filter) {;
-      let filters = this.state.activeFilters;
-      if (filters.includes(filter)) {
-        const index = filters.indexOf(filter);
-        filters.splice(index, 1);
-      } else {
-        const index = this.state.filters.indexOf(filter);
-        filters.splice(index, 0, filter);
-      }
-
-      let history = []
-      if (filters.length > 0) {
-        history = this.updateHistory(this.props.history.history, filters)
-      }
-      this.setState({activeFilters: filters, history: history})
+    updateFilters(filter, e) {
+      let filters = this.state.filters;
+      filters[filter] = !filters[filter];
+      this.setState({filters: filters, refresh: true, history: []})
     }
 
     displayEvent(history_event) {
@@ -127,27 +133,12 @@ class HistoryPage extends Component {
       return icon;
     }
 
-
-    updateHistory(history, active_filters) {
-      let newHistory = [];
-      newHistory = history.filter(history_event => {
-        let isFound = active_filters.some(af => history_event.tags.includes(af));
-        return isFound && history_event;
-      })
-      newHistory.sort(function(a, b) {
-          var c = new Date(a.title);
-          var d = new Date(b.title);
-          return d-c;
-      });
-
-      return newHistory;
-    }
     render() {
       if ((this.state.history.length == 0 && this.props.history.history.length == 0) || this.state.project.length == 0) {
         return (<Loading />);
       }
 
-      const filters = this.state.filters;
+      const filters = Object.keys(this.state.filters);
 
       return (
         <div className="App-page History-page">
@@ -176,8 +167,8 @@ class HistoryPage extends Component {
                       <div className="filter-option" key={filter}>
                         <input type="checkbox" id="filter-option" name="filter-option"
                           value={filter}
-                          defaultChecked={this.state.activeFilters.includes(filter)}
-                          onChange={() => this.updateFilters(filter)}
+                          defaultChecked={this.state.filters[filter]}
+                          onChange={(e) => this.updateFilters(filter, e)}
                           />
                         <div>{filter}</div>
                       </div>
@@ -186,7 +177,6 @@ class HistoryPage extends Component {
                 </div>
               </div>
             </div>
-
             {this.state.history.length > 0 && <div className="history-section" style={{ width: "100%", height: "95vh" }}>
               <Chrono items={this.state.history} allowDynamicUpdate={true} hideControls={true} theme={{
                   primary: "rgba(246,126,125,0.3)",
