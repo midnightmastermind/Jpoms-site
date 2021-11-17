@@ -8,7 +8,8 @@ import ReactMarkdown from 'react-markdown'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowCircleLeft, faDownload, faBriefcase, faQuestion, faDoorClosed, faSchool, faGraduationCap, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { connect } from 'react-redux';
-import actions from "../actions/historyActions.js";
+import historyActions from "../actions/historyActions.js";
+import projectActions from "../actions/projectActions.js";
 import jplogo from "../jplogo.png"
 const eventMap = {
   newjob: "Hired",
@@ -31,24 +32,29 @@ class HistoryPage extends Component {
       super();
 
       this.state = {
-  	    loading: true,
+  	    loaded: false,
         filters: ["carpentry", "compsci", "education", "it", "hospitality", "homecare", "management", "publicsafety", "sales", "community"],
         activeFilters: ["carpentry","compsci", "education", "it", "hospitality", "homecare", "management", "publicsafety", "sales", "community"],
-        history: []
+        history: [],
+        project: []
       }
     }
 
     componentDidMount() {
       this.props.fetchHistory();
+      this.props.fetchProject();
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-      if (this.props.history.history.length != 0 && this.state.history.length == 0) {
-        this.setState({history: this.props.history.history})
+      if (this.props.history.history.length != 0 && this.state.history.length == 0 && this.state.loaded == false) {
+        this.setState({history: this.props.history.history, loaded: true})
+      }
+      if (this.props.project.project.length != 0 && this.state.project.length == 0) {
+        this.setState({project: this.props.project.project})
       }
     }
 
-    updateFilters(filter) {
+    updateFilters(filter) {;
       let filters = this.state.activeFilters;
       if (filters.includes(filter)) {
         const index = filters.indexOf(filter);
@@ -57,7 +63,12 @@ class HistoryPage extends Component {
         const index = this.state.filters.indexOf(filter);
         filters.splice(index, 0, filter);
       }
-      this.setState({activeFilters: filters, history: this.updateHistory(this.props.history.history)})
+
+      let history = []
+      if (filters.length > 0) {
+        history = this.updateHistory(this.props.history.history, filters)
+      }
+      this.setState({activeFilters: filters, history: history})
     }
 
     displayEvent(history_event) {
@@ -80,7 +91,7 @@ class HistoryPage extends Component {
           <div className="event-type">{eventMap[history_event.type]}</div>
           <div className={`event-media ${history_event.files === "" ? "hidden" : ""}`}>
             {history_media.map(item => {
-              return (<img src={item} />)
+              return (<img key={item} src={item} />)
             })}
           </div>
           <div className={`reference-container ${history_event.reference === "" ? "hidden" : ""}`}><div className="reference">Reference: </div>{history_event.reference}</div>
@@ -89,7 +100,7 @@ class HistoryPage extends Component {
       } else if (history_event.type == "graduation") {
          history_dom = (<div className="history-event" key={history_event.id}><div className="event-type">{eventMap[history_event.type]}</div>  <div className={`event-media ${history_event.files === "" ? "hidden" : ""}`}>
             {history_media.map(item => {
-              return (<img src={item} />)
+              return (<img key={item} src={item} />)
             })}
           </div><div><ReactMarkdown className="markdown" children={history_event.description} /></div></div>
         )
@@ -117,10 +128,9 @@ class HistoryPage extends Component {
     }
 
 
-    updateHistory(history) {
-      const active_filters = this.state.activeFilters;
-
-      const newHistory = history.filter(history_event => {
+    updateHistory(history, active_filters) {
+      let newHistory = [];
+      newHistory = history.filter(history_event => {
         let isFound = active_filters.some(af => history_event.tags.includes(af));
         return isFound && history_event;
       })
@@ -133,7 +143,7 @@ class HistoryPage extends Component {
       return newHistory;
     }
     render() {
-      if (this.state.history.length == 0) {
+      if ((this.state.history.length == 0 && this.props.history.history.length == 0) || this.state.project.length == 0) {
         return (<Loading />);
       }
 
@@ -147,7 +157,15 @@ class HistoryPage extends Component {
                 <Link to="/" className="back-button" color="inherit"><FontAwesomeIcon className="icon" icon={faArrowCircleLeft}/>/home/history</Link>
                 <div className="current-projects">
                   <div className="projects-title">Current Projects</div>
-                  <div className="projects"></div>
+                  <div className="projects">
+                    {
+                      this.state.project.map(project => {
+                        if (project.current) {
+                          return (<div className="project" key={project.id}><a href={project.link}>{project.name}</a></div>);
+                        }
+                      })
+                    }
+                  </div>
                 </div>
               </div>
               <div className="right-side-history">
@@ -159,8 +177,8 @@ class HistoryPage extends Component {
                       <div className="filter-option" key={filter}>
                         <input type="checkbox" id="filter-option" name="filter-option"
                           value={filter}
-                          checked={this.state.activeFilters.includes(filter)}
-                          onClick={() => this.updateFilters(filter)}
+                          defaultChecked={this.state.activeFilters.includes(filter)}
+                          onChange={() => this.updateFilters(filter)}
                           />
                         <div>{filter}</div>
                       </div>
@@ -169,7 +187,8 @@ class HistoryPage extends Component {
                 </div>
               </div>
             </div>
-            <div className="history-section" style={{ width: "100%", height: "95vh" }}>
+
+            {this.state.history.length > 0 && <div className="history-section" style={{ width: "100%", height: "95vh" }}>
               <Chrono items={this.state.history} allowDynamicUpdate={true} hideControls={true} theme={{
                   primary: "rgba(246,126,125,0.3)",
                   secondary: "white",
@@ -194,6 +213,10 @@ class HistoryPage extends Component {
                 </div>
               </Chrono>
             </div>
+            }
+            {
+            this.state.history.length == 0 && <div className="warning">All history has been filtered out</div>
+            }
           </div>
         </div>
       )
@@ -202,5 +225,6 @@ class HistoryPage extends Component {
 
 export default connect(
   state => state,
-  actions
+  {...historyActions,
+  ...projectActions}
 )(HistoryPage);

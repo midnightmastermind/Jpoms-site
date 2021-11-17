@@ -21,7 +21,6 @@ export const fetchProject = dispatch => {
     return app
     .get("/project")
     .then(res => {
-      console.log(res);
       const project = res.data;
       dispatch(receiveProject(project));
     })

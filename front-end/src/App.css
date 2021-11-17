@@ -634,6 +634,10 @@ td {
 .card-sub-title {
   color: rgba(246,126,125) !important;
 }
+
+.project a{
+  color: white !important;
+}
 @media only screen and (max-width: 1725px) {
   .left-side-history {
     flex-direction: column;
