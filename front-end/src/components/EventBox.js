@@ -40,19 +40,47 @@ const eventMap = {
     referenceTitle: "Reference",
     subTitle: "Reason for Leaving"
   },
-  singleevent: {
+  event: {
     title: "Event",
     files: true,
     reference: true,
     referenceTitle: "Reference",
     subTitle: ""
-  }
+  },
+  leftorganization: {
+    title: "Left Organization",
+    files: true,
+    reference: false,
+    referenceTitle: "",
+    subTitle: "Reason for Leaving"
+  },
+  organization: {
+    title: "Joined Organization",
+    files: true,
+    reference: false,
+    referenceTitle: "",
+    subTitle: "Duties"
+  },
+  team: {
+    title: "Joined Team",
+    files: true,
+    reference: false,
+    referenceTitle: "",
+    subTitle: ""
+  },
+  leftteam: {
+    title: "Left Team",
+    files: true,
+    reference: false,
+    referenceTitle: "",
+    subTitle: ""
+  },
+
 }
 
 class EventBox extends Component {
    constructor() {
       super();
-
 
       this.state = {
   	    modal_opened: false

@@ -6,7 +6,7 @@ import data from "./data";
 import { Link } from "react-router-dom";
 import ReactMarkdown from 'react-markdown'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowCircleLeft, faDownload, faBriefcase, faQuestion, faDoorClosed, faSchool, faGraduationCap, faThumbsUp, faHistory, faFilter, faProjectDiagram, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { faArrowCircleLeft, faDownload, faBriefcase, faQuestion, faDoorClosed, faSchool, faGraduationCap, faThumbsUp, faHistory, faFilter, faProjectDiagram, faTimesCircle, faUsers, faUsersSlash, faCalendarDay } from '@fortawesome/free-solid-svg-icons';
 import { connect } from 'react-redux';
 import historyActions from "../actions/historyActions.js";
 import projectActions from "../actions/projectActions.js";
@@ -41,7 +41,11 @@ class HistoryPage extends Component {
           education: true,
           hospitality: true,
           homecare: true,
-          publicsafety: true
+          publicsafety: true,
+          team: true,
+          organization: true,
+          charity: true,
+          lawncare: true
         },
         history: [],
         project: [],
@@ -126,6 +130,12 @@ class HistoryPage extends Component {
         icon = (<FontAwesomeIcon className="icon" key={history_event.id} icon={faGraduationCap}/>);
       } else if (history_event.type == "promotion") {
         icon = (<FontAwesomeIcon className="icon" key={history_event.id} icon={faThumbsUp}/>);
+      } else if (history_event.type == "organization" || history_event.type == "team") {
+        icon = (<FontAwesomeIcon className="icon" key={history_event.id} icon={faUsers}/>);
+      } else if (history_event.type == "leftorganization" || history_event.type == "leftteam") {
+        icon = (<FontAwesomeIcon className="icon" key={history_event.id} icon={faUsersSlash}/>);
+      } else if (history_event.type == "event" || history_event.type == "leftteam") {
+        icon = (<FontAwesomeIcon className="icon" key={history_event.id} icon={faCalendarDay}/>);
       }
 
       return icon;
