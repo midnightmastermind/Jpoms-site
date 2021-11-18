@@ -39,6 +39,13 @@ const eventMap = {
     reference: true,
     referenceTitle: "Reference",
     subTitle: "Reason for Leaving"
+  },
+  singleevent: {
+    title: "Event",
+    files: true,
+    reference: true,
+    referenceTitle: "Reference",
+    subTitle: ""
   }
 }
 
