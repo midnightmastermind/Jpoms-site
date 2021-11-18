@@ -14,8 +14,7 @@ const HistorySchema = new Schema({
     project: {
        type: Schema.Types.ObjectId,
        ref: "Project"
-     },
-     date_two: {type: Date},
+     }
 })
 
 // BlockSchema.post('findOneAndUpdate', function(doc, next) {

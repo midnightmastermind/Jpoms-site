@@ -528,13 +528,20 @@ html, body {
   font-weight: bold;
   font-size: 14px;
   color: rgba(246,126,125);
+  order: 1;
 }
 
 .left .event-type {
-  text-align: right;
+  order: 3;
+}
+
+/* .history-event-description {
   padding-right: 15px;
 }
-.current-projects {
+.left .history-event-description {
+  text-align: right;
+} */
+.right-side-history .current-projects {
   margin-top: 25px;
   background-color: rgba(246,126,125,0.3);
   border-radius: 4px;
@@ -648,6 +655,16 @@ td {
   right: 45%;
   font-size: 15px;
 }
+
+.history-event-top-bar {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 15px;
+}
+
+.history-event-top-bar a {
+  order: 2
+}
 @media only screen and (max-width: 1725px) {
   .left-side-history {
     flex-direction: column;
@@ -657,7 +674,7 @@ td {
     flex-direction: column;
   }
 }
-@media only screen and (max-width: 1225px) {
+@media only screen and (max-width: 1364px) {
 	.App-splashscreen {
 		background-position-x: -45px;
 	}

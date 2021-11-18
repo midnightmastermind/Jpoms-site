@@ -6,10 +6,11 @@ import data from "./data";
 import { Link } from "react-router-dom";
 import ReactMarkdown from 'react-markdown'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowCircleLeft, faDownload, faBriefcase, faQuestion, faDoorClosed, faSchool, faGraduationCap, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+import { faArrowCircleLeft, faDownload, faBriefcase, faQuestion, faDoorClosed, faSchool, faGraduationCap, faThumbsUp, faHistory, faFilter, faProjectDiagram } from '@fortawesome/free-solid-svg-icons';
 import { connect } from 'react-redux';
 import historyActions from "../actions/historyActions.js";
 import projectActions from "../actions/projectActions.js";
+import EventBox from './EventBox.js';
 import jplogo from "../jplogo.png"
 const eventMap = {
   newjob: "Hired",
@@ -85,32 +86,11 @@ class HistoryPage extends Component {
         }
       });
 
-      let history_dom = (<div className="history-event" key={history_event.id}><div className="event-type">{eventMap[history_event.type]}</div><div><ReactMarkdown className="markdown" children={history_event.description} /></div></div>);
-      if (history_event.type == "newjob") {
-          history_dom = (<div className="history-event newjob-event" key={history_event.id}>
-          <div className="event-type">{eventMap[history_event.type]}</div>
-          <div className={`reference-container ${history_event.reference === "" ? "hidden" : ""}`}><div className="reference">Manager: </div>{history_event.reference}</div>
-          <div><div className="reason">Responsibilities:</div><ReactMarkdown className="markdown" children={history_event.description} /></div>
-          </div>);
-      } else if (history_event.type == "endjob") {
-        history_dom = (<div className="history-event endjob-event" key={history_event.id}>
-          <div className="event-type">{eventMap[history_event.type]}</div>
-          <div className={`event-media ${history_event.files === "" ? "hidden" : ""}`}>
-            {history_media.map(item => {
-              return (<img key={item} src={item} />)
-            })}
-          </div>
-          <div className={`reference-container ${history_event.reference === "" ? "hidden" : ""}`}><div className="reference">Reference: </div>{history_event.reference}</div>
-          <div><div className="reason">Reason for Leaving:</div><ReactMarkdown className="markdown" children={history_event.description} /></div>
-        </div>);
-      } else if (history_event.type == "graduation") {
-         history_dom = (<div className="history-event" key={history_event.id}><div className="event-type">{eventMap[history_event.type]}</div>  <div className={`event-media ${history_event.files === "" ? "hidden" : ""}`}>
-            {history_media.map(item => {
-              return (<img key={item} src={item} />)
-            })}
-          </div><div><ReactMarkdown className="markdown" children={history_event.description} /></div></div>
-        )
+      const event_props = {
+        history_event: history_event,
+        history_media: history_media
       }
+      const history_dom = (<EventBox {...event_props} />);
 
       return history_dom;
     }
@@ -146,17 +126,16 @@ class HistoryPage extends Component {
             <div className="side-bars">
               <div className="left-side-history">
                 <Link to="/" className="back-button" color="inherit"><FontAwesomeIcon className="icon" icon={faArrowCircleLeft}/><div className="nav">/home/history</div></Link>
+                <div className="page-title">Job/Organization History</div>
               </div>
               <div className="right-side-history">
               <div className="current-projects">
                 <div className="projects-title">Current Projects</div>
                   <div className="projects">
                     {
-                      this.state.project.map(project => {
-                        if (project.current) {
-                          return (<div className="project" key={project.id}><a href={project.link}>{project.name}</a></div>);
-                        }
-                      })
+                      this.state.project.length > 0 && this.state.project.map(project => (
+                        project.current && <div key={project._id} className="project"><a href={project.link}>{project.name}</a></div>
+                      ))
                     }
                   </div>
                 </div>
