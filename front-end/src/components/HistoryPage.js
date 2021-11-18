@@ -6,7 +6,7 @@ import data from "./data";
 import { Link } from "react-router-dom";
 import ReactMarkdown from 'react-markdown'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowCircleLeft, faDownload, faBriefcase, faQuestion, faDoorClosed, faSchool, faGraduationCap, faThumbsUp, faHistory, faFilter, faProjectDiagram } from '@fortawesome/free-solid-svg-icons';
+import { faArrowCircleLeft, faDownload, faBriefcase, faQuestion, faDoorClosed, faSchool, faGraduationCap, faThumbsUp, faHistory, faFilter, faProjectDiagram, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { connect } from 'react-redux';
 import historyActions from "../actions/historyActions.js";
 import projectActions from "../actions/projectActions.js";
@@ -45,7 +45,9 @@ class HistoryPage extends Component {
         },
         history: [],
         project: [],
-        refresh: false
+        refresh: false,
+        modal_open: false,
+        modal: "filters"
       }
     }
 
@@ -77,7 +79,23 @@ class HistoryPage extends Component {
       filters[filter] = !filters[filter];
       this.setState({filters: filters, refresh: true, history: []})
     }
+    closeModal() {
+      this.setState({modal_open: false})
+    }
 
+    setModal(modal) {
+      let modal_open = this.state.modal_open;
+      const current_modal = this.state.modal;
+      console.log(current_modal);
+      console.log(modal);
+      console.log(modal_open);
+      if(modal_open && modal === current_modal) {
+        this.closeModal();
+      } else {
+          this.setState({modal_open: true, modal: modal})
+      }
+
+    }
     displayEvent(history_event) {
       let history_media =[];
       imageKeys.forEach((item, i) => {
@@ -122,41 +140,14 @@ class HistoryPage extends Component {
 
       return (
         <div className="App-page History-page">
+          <div className="top-bar">
+            <Link to="/" className="back-button" color="inherit"><FontAwesomeIcon className="icon" icon={faArrowCircleLeft}/></Link>
+            <a className="back-button" color="inherit" onClick={()=>this.setModal("filters")}><FontAwesomeIcon className="icon" icon={faFilter}/></a>
+            <a className="back-button" color="inherit" onClick={()=>this.setModal("project")}><FontAwesomeIcon className="icon" icon={faProjectDiagram}/></a>
+            <div className="page-title">Job/Organization History</div>
+          </div>
           <div className="App-content">
-            <div className="side-bars">
-              <div className="left-side-history">
-                <Link to="/" className="back-button" color="inherit"><FontAwesomeIcon className="icon" icon={faArrowCircleLeft}/><div className="nav">/home/history</div></Link>
-                <div className="page-title">Job/Organization History</div>
-              </div>
-              <div className="right-side-history">
-              <div className="current-projects">
-                <div className="projects-title">Current Projects</div>
-                  <div className="projects">
-                    {
-                      this.state.project.length > 0 && this.state.project.map(project => (
-                        project.current && <div key={project._id} className="project"><a href={project.link}>{project.name}</a></div>
-                      ))
-                    }
-                  </div>
-                </div>
-                <div className="history-tags">
-                  <div className="tags-title">Filters Applied:</div>
-                  <div className="filter-options">
-                    { filters.map(filter => (
-                      <div className="filter-option" key={filter}>
-                        <input type="checkbox" id="filter-option" name="filter-option"
-                          value={filter}
-                          defaultChecked={this.state.filters[filter]}
-                          onChange={(e) => this.updateFilters(filter, e)}
-                          />
-                        <div>{filter}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-            {this.state.history.length > 0 && <div className="history-section" style={{ width: "100%", height: "95vh" }}>
+            {this.state.history.length > 0 && <div className="history-section" style={{ width: "100%", height: "90vh" }}>
               <Chrono items={this.state.history} allowDynamicUpdate={true} hideControls={true} theme={{
                   primary: "rgba(246,126,125,0.3)",
                   secondary: "white",
@@ -186,6 +177,37 @@ class HistoryPage extends Component {
             this.state.history.length == 0 && <div className="warning">All history has been filtered out</div>
             }
           </div>
+          {this.state.modal_open && <div className="modal">
+            <div className="modal-top-bar"><a onClick={() => this.closeModal()}><FontAwesomeIcon className="icon" icon={faTimesCircle}/></a></div>
+            {this.state.modal == "project" && <div className="current-projects">
+              <div className="projects-title">Current Projects</div>
+              <div className="projects">
+                {
+                  this.state.project.length > 0 && this.state.project.map(project => (
+                    project.current && <div key={project._id} className="project"><a href={project.link}>{project.name}</a></div>
+                  ))
+                }
+              </div>
+            </div>
+            }
+            {this.state.modal == "filters" && <div className="history-tags">
+              <div className="tags-title">Filters Applied:</div>
+              <div className="filter-options">
+                { filters.map(filter => (
+                  <div className="filter-option" key={filter}>
+                    <input type="checkbox" id="filter-option" name="filter-option"
+                      value={filter}
+                      defaultChecked={this.state.filters[filter]}
+                      onChange={(e) => this.updateFilters(filter, e)}
+                      />
+                    <div>{filter}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            }
+          </div>
+          }
         </div>
       )
     }
