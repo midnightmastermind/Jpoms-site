@@ -29,10 +29,10 @@ function importAll(r) {
 const images = importAll(require.context('../assets', false, /\.(png|jpe?g|svg|JPG)$/));
 const imageKeys = Object.keys(images);
 class HistoryPage extends Component {
-   constructor() {
-      super();
+   constructor(props) {
+      super(props);
 
-
+      this.setModal = this.setModal.bind(this);
       this.state = {
   	    loaded: false,
         filters: {
@@ -52,7 +52,8 @@ class HistoryPage extends Component {
         project: [],
         refresh: false,
         modal_open: false,
-        modal: "filters"
+        modal: "filters",
+        modal_image: ""
       }
     }
 
@@ -85,19 +86,17 @@ class HistoryPage extends Component {
       this.setState({filters: filters, refresh: true, history: []})
     }
     closeModal() {
-      this.setState({modal_open: false})
+      this.setState({modal_open: false, modal_image: ""})
     }
 
-    setModal(modal) {
+    setModal(modal, image) {
       let modal_open = this.state.modal_open;
       const current_modal = this.state.modal;
-
-      if(modal_open && modal === current_modal) {
+      if(modal != "image" && (modal_open && modal === current_modal)) {
         this.closeModal();
       } else {
-          this.setState({modal_open: true, modal: modal})
+          this.setState({modal_open: true, modal: modal, modal_image: image})
       }
-
     }
     displayEvent(history_event) {
       let history_media =[];
@@ -109,9 +108,9 @@ class HistoryPage extends Component {
 
       const event_props = {
         history_event: history_event,
-        history_media: history_media
+        history_media: history_media,
       }
-      const history_dom = (<EventBox {...event_props} />);
+      const history_dom = (<EventBox setModal={this.setModal} key={history_event.id} {...event_props} />);
 
       return history_dom;
     }
@@ -153,8 +152,8 @@ class HistoryPage extends Component {
         <div className="App-page History-page">
           <div className="top-bar">
             <Link to="/" className="back-button" color="inherit"><FontAwesomeIcon className="icon" icon={faArrowCircleLeft}/></Link>
-            <a className="back-button" color="inherit" onClick={()=>this.setModal("filters")}><FontAwesomeIcon className="icon" icon={faFilter}/></a>
-            <a className="back-button" color="inherit" onClick={()=>this.setModal("project")}><FontAwesomeIcon className="icon" icon={faProjectDiagram}/></a>
+            <a className="back-button" color="inherit" onClick={()=>this.setModal("filters", null)}><FontAwesomeIcon className="icon" icon={faFilter}/></a>
+            <a className="back-button" color="inherit" onClick={()=>this.setModal("project", null)}><FontAwesomeIcon className="icon" icon={faProjectDiagram}/></a>
             <div className="page-title">Job/Organization History</div>
           </div>
           <div className="App-content">
@@ -217,6 +216,7 @@ class HistoryPage extends Component {
               </div>
             </div>
             }
+            {this.state.modal == "image" && <div className="full-image" style={{backgroundImage: `url(${this.state.modal_image})`}}/>}
           </div>
           }
         </div>

@@ -563,15 +563,18 @@ html, body {
   flex-direction: row;
   max-width: 350px;
   width: auto;
-  overflow-x: scroll;
+  height: 150px;
   overflow-y: hidden;
+  overflow-x: scroll;
 }
 
-.event-media img {
-  height: 100px;
-  width: auto;
-  padding: 10px;
-  opacity: .5;
+.event-media div {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 10px;
+  min-height: 100px;
+  min-width: 100px;
 }
 .hidden {
   display: none !important;
@@ -659,6 +662,20 @@ td {
 .timeline-vertical-circle {
   color: rgba(255,255,255,0.3) !important;
 }
+
+.markdown a {
+  color: white
+}
+.full-image {
+  min-width: 300px;
+  min-height: 300px;
+  width: auto;
+  height: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  align-self: center;
+}
 @media only screen and (max-width: 1364px) {
 	.App-splashscreen {
 		background-position-x: -45px;
@@ -670,24 +687,12 @@ td {
   .timeline-main-wrapper {
     padding-left: 0px !important;
   }
-  .event-media {
-    max-width: 300px;
-  }
 
+  .modal {
+    left: 25%;
+  }
 }
-@media only screen and (max-width: 1148px) {
 
-}
-@media only screen and (max-width: 940px) {
-  .event-media {
-    max-width: 300px;
-  }
-}
-@media only screen and (max-width: 724px) {
-  .event-media {
-    max-width: 250px;
-  }
-}
 @media only screen and (max-width: 688px) {
   .history-section {
     max-width: 100%;
@@ -706,18 +711,20 @@ td {
   }
 
   .event-media {
-    max-width: 200px;
+    width: 200px;
   }
+
   .reference-container {
     flex-direction: column;
+  }
+  .modal {
+    width: 91%;
+    left: 0;
+    top: 60px;
   }
 }
 
 @media only screen and (max-width: 510px) {
-  .event-media {
-    max-width: 100px;
-    margin: 0 auto;
-  }
   .App-logo {
     height: 50px;
     width: 50px;
@@ -725,15 +732,12 @@ td {
   .LandingLinks-page .App-splashscreen {
     padding-top: 100px;
   }
-
+  .event-media {
+    width: 100px;
+  }
 }
 
 @media only screen and (max-width: 415px) {
-  .modal {
-    width: 92%;
-    left: 0;
-    top: 60px;
-  }
   .modal .history-tags{
     align-self: center;
   }

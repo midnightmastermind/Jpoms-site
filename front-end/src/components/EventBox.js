@@ -87,11 +87,11 @@ class EventBox extends Component {
       }
     }
 
-
     render() {
       const history_event = this.props.history_event;
       const history_media = this.props.history_media;
       const event_props = eventMap[history_event.type];
+      const setModal = this.props.setModal;
       return (
         <div className="history-event" key={history_event.id}>
           <div className="history-event-top-bar"><a><FontAwesomeIcon className="icon" icon={faHistory}/></a><div className="event-type">{event_props.title}</div></div>
@@ -100,7 +100,7 @@ class EventBox extends Component {
           {event_props.files && (
             <div className={`event-media ${history_event.files === "" ? "hidden" : ""}`}>
               {history_media.map(item => {
-                return (<div key={item}><img src={item} /></div>)
+                return (<div onClick={() => setModal("image", item)} style={{backgroundImage: `url(${item})`}} key={item} />)
               })}
             </div>)
             }
