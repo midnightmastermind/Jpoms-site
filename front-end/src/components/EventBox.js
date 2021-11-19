@@ -14,7 +14,7 @@ const eventMap = {
   },
   promotion: {
     title: "Promoted",
-    files: false,
+    files: true,
     reference: false,
     referenceTitle: "",
     subTitle: "",
@@ -74,7 +74,7 @@ const eventMap = {
     reference: false,
     referenceTitle: "",
     subTitle: ""
-  },
+  }
 
 }
 
@@ -96,7 +96,7 @@ class EventBox extends Component {
         <div className="history-event" key={history_event.id}>
           <div className="history-event-top-bar"><a><FontAwesomeIcon className="icon" icon={faHistory}/></a><div className="event-type">{event_props.title}</div></div>
           <div className={`reference-container ${history_event.reference === "" || !event_props.reference ? "hidden" : ""}`}><div className="reference">{event_props.referenceTitle}:</div>{history_event.reference}</div>
-          <div className="history-event-description"><div className={`reason ${history_event.subTitle === "" ? "hidden" : ""}`}>{event_props.subTitle}</div><ReactMarkdown className="markdown" children={history_event.description} /></div>
+          {history_event.description != "" && <div className="history-event-description"><div className={`reason ${history_event.subTitle === "" ? "hidden" : ""}`}>{event_props.subTitle}</div><ReactMarkdown className="markdown" children={history_event.description} /></div>}
           {event_props.files && (
             <div className={`event-media ${history_event.files === "" ? "hidden" : ""}`}>
               {history_media.map(item => {

@@ -6,7 +6,7 @@ import data from "./data";
 import { Link } from "react-router-dom";
 import ReactMarkdown from 'react-markdown'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowCircleLeft, faDownload, faBriefcase, faQuestion, faDoorClosed, faSchool, faGraduationCap, faThumbsUp, faHistory, faFilter, faProjectDiagram, faTimesCircle, faUsers, faUsersSlash, faCalendarDay } from '@fortawesome/free-solid-svg-icons';
+import { faArrowCircleLeft, faDownload, faBriefcase, faQuestion, faDoorClosed, faSchool, faGraduationCap, faThumbsUp, faHistory, faFilter, faProjectDiagram, faTimesCircle, faUsers, faUsersSlash, faCalendarDay, faFolderOpen } from '@fortawesome/free-solid-svg-icons';
 import { connect } from 'react-redux';
 import historyActions from "../actions/historyActions.js";
 import projectActions from "../actions/projectActions.js";
@@ -45,7 +45,8 @@ class HistoryPage extends Component {
           team: true,
           organization: true,
           charity: true,
-          lawncare: true
+          lawncare: true,
+          project: true
         },
         history: [],
         project: [],
@@ -90,9 +91,7 @@ class HistoryPage extends Component {
     setModal(modal) {
       let modal_open = this.state.modal_open;
       const current_modal = this.state.modal;
-      console.log(current_modal);
-      console.log(modal);
-      console.log(modal_open);
+
       if(modal_open && modal === current_modal) {
         this.closeModal();
       } else {
@@ -134,8 +133,10 @@ class HistoryPage extends Component {
         icon = (<FontAwesomeIcon className="icon" key={history_event.id} icon={faUsers}/>);
       } else if (history_event.type == "leftorganization" || history_event.type == "leftteam") {
         icon = (<FontAwesomeIcon className="icon" key={history_event.id} icon={faUsersSlash}/>);
-      } else if (history_event.type == "event" || history_event.type == "leftteam") {
+      } else if (history_event.type == "event") {
         icon = (<FontAwesomeIcon className="icon" key={history_event.id} icon={faCalendarDay}/>);
+      } else if (history_event.type == "project") {
+        icon = (<FontAwesomeIcon className="icon" key={history_event.id} icon={faFolderOpen}/>);
       }
 
       return icon;
