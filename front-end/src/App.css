@@ -568,13 +568,18 @@ html, body {
   overflow-x: scroll;
 }
 
-.event-media div {
+.event-image {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   margin: 10px;
   min-height: 100px;
   min-width: 100px;
+  border-radius: 4px;
+}
+
+.border {
+  border: 1px solid #f67e7d;
 }
 .hidden {
   display: none !important;
@@ -666,6 +671,10 @@ td {
 .markdown a {
   color: white
 }
+
+a {
+  cursor: pointer;
+}
 .full-image {
   min-width: 300px;
   min-height: 300px;
@@ -675,6 +684,7 @@ td {
   background-repeat: no-repeat;
   background-size: contain;
   align-self: center;
+  border-radius: 4px;
 }
 @media only screen and (max-width: 1364px) {
 	.App-splashscreen {
@@ -711,16 +721,25 @@ td {
   }
 
   .event-media {
-    width: 200px;
+    max-width: 200px;
   }
 
   .reference-container {
     flex-direction: column;
   }
+
   .modal {
     width: 91%;
     left: 0;
     top: 60px;
+  }
+
+  .modal .history-tags{
+    align-self: center;
+  }
+
+  .modal .current-projects{
+    align-self: center;
   }
 }
 
@@ -733,17 +752,11 @@ td {
     padding-top: 100px;
   }
   .event-media {
-    width: 100px;
+    max-width: 100px;
   }
 }
 
 @media only screen and (max-width: 415px) {
-  .modal .history-tags{
-    align-self: center;
-  }
-  .modal .current-projects{
-    align-self: center;
-  }
   .App-content {
     margin: 0px;
   }
@@ -766,5 +779,10 @@ td {
 
   .card-description {
     padding-left: 7px !important;
+  }
+
+  .back-button .icon {
+    height: 20px;
+    width: 20px;
   }
 }

@@ -100,7 +100,7 @@ class EventBox extends Component {
           {event_props.files && (
             <div className={`event-media ${history_event.files === "" ? "hidden" : ""}`}>
               {history_media.map(item => {
-                return (<div onClick={() => setModal("image", item)} style={{backgroundImage: `url(${item})`}} key={item} />)
+                return (<div className="event-image" onClick={() => setModal("image", item)} style={{backgroundImage: `url(${item})`}} key={item} />)
               })}
             </div>)
             }

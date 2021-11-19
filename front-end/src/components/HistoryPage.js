@@ -11,7 +11,8 @@ import { connect } from 'react-redux';
 import historyActions from "../actions/historyActions.js";
 import projectActions from "../actions/projectActions.js";
 import EventBox from './EventBox.js';
-import jplogo from "../jplogo.png"
+import jplogo from "../jplogo.png";
+import resume from "./resume.pdf";
 const eventMap = {
   newjob: "Hired",
   promotion: "Promoted",
@@ -93,7 +94,7 @@ class HistoryPage extends Component {
       let modal_open = this.state.modal_open;
       const current_modal = this.state.modal;
       if(modal != "image" && (modal_open && modal === current_modal)) {
-        this.closeModal();
+          this.closeModal();
       } else {
           this.setState({modal_open: true, modal: modal, modal_image: image})
       }
@@ -142,6 +143,7 @@ class HistoryPage extends Component {
     }
 
     render() {
+      console.log(resume);
       if ((this.state.history.length == 0 && this.props.history.history.length == 0) || this.state.project.length == 0) {
         return (<Loading />);
       }
@@ -154,6 +156,7 @@ class HistoryPage extends Component {
             <Link to="/" className="back-button" color="inherit"><FontAwesomeIcon className="icon" icon={faArrowCircleLeft}/></Link>
             <a className="back-button" color="inherit" onClick={()=>this.setModal("filters", null)}><FontAwesomeIcon className="icon" icon={faFilter}/></a>
             <a className="back-button" color="inherit" onClick={()=>this.setModal("project", null)}><FontAwesomeIcon className="icon" icon={faProjectDiagram}/></a>
+            <Link to={resume} className="back-button" color="inherit" target="_blank" download><FontAwesomeIcon className="icon" icon={faDownload}/></Link>
             <div className="page-title">Job/Organization History</div>
           </div>
           <div className="App-content">
