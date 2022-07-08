@@ -176,7 +176,9 @@
 .divider {
     height: 25px;
 }
-
+.Error-page {
+  text-align: center;
+}
 .footer {
     color: gray;
     align-items: center;
@@ -186,7 +188,77 @@
     bottom: 0;
     left: 0;
 }
+.loginForm form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+}
+.loginForm .img-container {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  border: 1px solid #f67e7d;
+  background-color: rgb(34,34,34,.85);
+  background-position: 50%;
+  background-size: contain;
+  overflow: hidden;
+}
 
+.loginForm img {
+  height: 160px;
+  width: 160px;
+  background-image: url(jplogo.png);
+  background-position: 50%;
+  background-size: contain;
+  margin-top: -5px;
+  margin-left: -5px;
+}
+
+.loginForm label {
+  margin-top: 10px;
+  color: rgb(34, 34, 34);
+  cursor: pointer;
+  text-decoration: none;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.loginForm .btn {
+    border-radius: 10px;
+    margin-top: 20px;
+    color: rgb(34, 34, 34);
+    background: none;
+    width: 100px;
+    border: 1px solid #f67e7d;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0px !important;
+    font-size: 18px;
+}
+
+.loginForm .btn:hover {
+    border: 1px solid rgba(246,126,125,0.3);
+    background-color: rgb(34, 34, 34, .85);
+    color: rgba(246,126,125,0.3);
+}
+
+.loginForm .form-control {
+  border-radius: 5px;
+  border: 1px solid #f67e7d;
+  background-color: rgb(34, 34, 34);
+  color: white;
+}
+
+.loginForm input {
+  padding-left: 5px;
+}
 @media only screen and (max-width: 1050px) {
     .services-offered p {
         margin: 10px;
@@ -686,7 +758,7 @@ a {
   align-self: center;
   border-radius: 4px;
 }
-@media only screen and (max-width: 1364px) {
+@media only screen and (max-width: 1536px) {
 	.App-splashscreen {
 		background-position-x: -45px;
 	}

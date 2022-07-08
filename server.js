@@ -1,9 +1,11 @@
 const express = require('express')
 const http = require('http')
+const https = require('https')
 const socketIO = require('socket.io')
 const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require("body-parser");
+const fs = require('fs');
 const historyRouter = require("./back-end/routes/history");
 const projectRouter = require("./back-end/routes/project");
 require('dotenv').config();
@@ -34,7 +36,10 @@ connection.once('open', () => {
 app.use("/api/history", historyRouter);
 app.use("/api/project", projectRouter);
 
-const server = http.createServer(app);
+const server = https.createServer({
+  key: fs.readFileSync('/var/www/jpoms/privkey.pem'),
+  cert: fs.readFileSync('/var/www/jpoms/fullchain.pem'),
+}, app);
 
 // This creates our socket using the instance of the server
 const io = socketIO(server)

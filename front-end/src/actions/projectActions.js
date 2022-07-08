@@ -11,8 +11,8 @@ const env = process.env.NODE_ENV; // current environment
 export const app = axios.create({
   baseURL:
     env === 'production'
-      ? 'http://jpoms.com/api/' // production
-      : 'http://localhost:3001/api/', // development
+      ? 'https://jpoms.com/api/' // production
+      : 'https://localhost:3001/api/', // development
 });
 
 export const fetchProject = dispatch => {

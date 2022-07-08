@@ -14,6 +14,8 @@ import CatsPage from './components/CatsPage';
 import ProjectZenoPage from './components/ProjectZenoPage';
 import JessicaPage from './components/JessicaPage';
 import SocialPage from './components/SocialPage';
+import ErrorPage from './components/ErrorPage';
+import LoginPage from './components/LoginPage';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Particles from "react-tsparticles";
 
@@ -38,7 +40,7 @@ const App = () => {
           options={{
             fpsLimit: 60,
             background: {
-              color: "#222"
+              color: "rgb(34,34,34,.85)"
             },
             backgroundMode: {
               enable: true
@@ -92,6 +94,9 @@ const App = () => {
 
              <Route path="/" element={<LandingLinksPage />} />
              <Route path="/history" element={ <HistoryPage />} />
+             <Route path="/error" element={ <ErrorPage />} />
+             <Route path="/login" element={ <LoginPage />} />
+             <Route path="*" element={ <ErrorPage /> } />
           </Routes>
         </div>
         <img src={jplogo} className="App-logo" alt="logo" />
